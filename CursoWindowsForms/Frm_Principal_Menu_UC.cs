@@ -12,6 +12,8 @@ namespace CursoWindowsForms
 {
     public partial class Frm_Principal_Menu_UC : Form
     {
+        int ControleHelloWord = 0;
+
         public Frm_Principal_Menu_UC()
         {
             InitializeComponent();
@@ -25,16 +27,20 @@ namespace CursoWindowsForms
 
         private void helloWorldToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ControleHelloWord += 1;
+
             Frm_HelloWorld_UC U = new Frm_HelloWorld_UC();
             TabPage TB = new TabPage();
-            TB.Name = "Hello World";
-            TB.Text = "Hello World";
+            TB.Name = "Hello World " + ControleHelloWord;
+            TB.Text = "Hello World " + ControleHelloWord;
+            TB.ImageIndex = 1;
             TB.Controls.Add(U);
             Tbc_Aplicacoes.TabPages.Add(TB);
         }
 
         private void máscaraToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             Frm_Mascara f = new Frm_Mascara();
             f.MdiParent = this;
             f.Show();
@@ -79,6 +85,14 @@ namespace CursoWindowsForms
         private void verticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.LayoutMdi(System.Windows.Forms.MdiLayout.TileVertical);
+        }
+
+        private void apagarAbaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!(Tbc_Aplicacoes.SelectedTab == null))
+            {
+            Tbc_Aplicacoes.TabPages.Remove(Tbc_Aplicacoes.SelectedTab);
+            }
         }
     }
 }
