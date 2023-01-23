@@ -1,0 +1,6 @@
+D:\EMERSON\Programacao\WindowsForm\Curso\CursoWindowsForms\CursoWindowsFormsBiblioteca\bin\Release\CursoWindowsFormsBiblioteca.dll
+D:\EMERSON\Programacao\WindowsForm\Curso\CursoWindowsForms\CursoWindowsFormsBiblioteca\bin\Release\CursoWindowsFormsBiblioteca.pdb
+D:\EMERSON\Programacao\WindowsForm\Curso\CursoWindowsForms\CursoWindowsFormsBiblioteca\obj\Release\CursoWindowsFormsBiblioteca.csproj.AssemblyReference.cache
+D:\EMERSON\Programacao\WindowsForm\Curso\CursoWindowsForms\CursoWindowsFormsBiblioteca\obj\Release\CursoWindowsFormsBiblioteca.csproj.CoreCompileInputs.cache
+D:\EMERSON\Programacao\WindowsForm\Curso\CursoWindowsForms\CursoWindowsFormsBiblioteca\obj\Release\CursoWindowsFormsBiblioteca.dll
+D:\EMERSON\Programacao\WindowsForm\Curso\CursoWindowsForms\CursoWindowsFormsBiblioteca\obj\Release\CursoWindowsFormsBiblioteca.pdb
