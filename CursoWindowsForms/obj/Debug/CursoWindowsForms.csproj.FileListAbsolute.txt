@@ -44,3 +44,4 @@ D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindow
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_HelloWorld_UC.resources
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_Principal_Menu_UC.resources
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_DemonstracaoKey_UC.resources
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_Mascara_UC.resources

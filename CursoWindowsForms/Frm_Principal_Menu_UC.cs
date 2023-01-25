@@ -14,6 +14,7 @@ namespace CursoWindowsForms
     {
         int ControleHelloWord = 0;
         int ControleDemonstracaoKey = 0;
+        int ControleMascara = 0;
 
         public Frm_Principal_Menu_UC()
         {
@@ -47,10 +48,15 @@ namespace CursoWindowsForms
 
         private void máscaraToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ControleMascara += 1;
 
-            Frm_Mascara f = new Frm_Mascara();
-            f.MdiParent = this;
-            f.Show();
+            Frm_Mascara_UC U = new Frm_Mascara_UC();
+            TabPage TB = new TabPage();
+            TB.Name = "Máscara " + ControleMascara;
+            TB.Text = "Máscara " + ControleMascara;
+            TB.ImageIndex = 2;
+            TB.Controls.Add(U);
+            Tbc_Aplicacoes.TabPages.Add(TB);
         }
 
         private void validaCPFToolStripMenuItem_Click(object sender, EventArgs e)
