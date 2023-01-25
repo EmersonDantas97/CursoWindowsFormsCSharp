@@ -13,6 +13,7 @@ namespace CursoWindowsForms
     public partial class Frm_Principal_Menu_UC : Form
     {
         int ControleHelloWord = 0;
+        int ControleDemonstracaoKey = 0;
 
         public Frm_Principal_Menu_UC()
         {
@@ -20,9 +21,15 @@ namespace CursoWindowsForms
         }
         private void demonstraçãoKeyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_DemonstracaoKey f = new Frm_DemonstracaoKey();
-            f.MdiParent = this;
-            f.Show();
+            ControleDemonstracaoKey += 1;
+
+            Frm_DemonstracaoKey_UC U = new Frm_DemonstracaoKey_UC();
+            TabPage TB = new TabPage();
+            TB.Name = "Demonstração Key " + ControleDemonstracaoKey;
+            TB.Text = "Demonstração Key " + ControleDemonstracaoKey;
+            TB.ImageIndex = 0;
+            TB.Controls.Add(U);
+            Tbc_Aplicacoes.TabPages.Add(TB);
         }
 
         private void helloWorldToolStripMenuItem_Click(object sender, EventArgs e)
