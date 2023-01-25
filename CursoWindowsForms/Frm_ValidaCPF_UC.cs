@@ -9,12 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace CursoWindowsForms
 {
-    public partial class Frm_ValidaCPF : Form
+    public partial class Frm_ValidaCPF_UC : UserControl
     {
-        public Frm_ValidaCPF()
+        public Frm_ValidaCPF_UC()
         {
             InitializeComponent();
         }
@@ -40,11 +39,6 @@ namespace CursoWindowsForms
                 Lbl_Resultado.Text = "CPF inválido!";
                 Lbl_Resultado.ForeColor = Color.Red;
             }
-        }
-
-        private void Frm_ValidaCPF_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
