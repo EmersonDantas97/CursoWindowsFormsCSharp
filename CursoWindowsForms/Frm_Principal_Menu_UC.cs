@@ -15,6 +15,9 @@ namespace CursoWindowsForms
         int ControleHelloWord = 0;
         int ControleDemonstracaoKey = 0;
         int ControleMascara = 0;
+        int ControleValidaCPF = 0;
+        int ControleValidaCPF2 = 0;
+        int ControleValidaSenha = 0;
 
         public Frm_Principal_Menu_UC()
         {
@@ -61,23 +64,41 @@ namespace CursoWindowsForms
 
         private void validaCPFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_ValidaCPF f = new Frm_ValidaCPF();
-            f.MdiParent = this;
-            f.Show();
+            ControleValidaCPF += 1;
+
+            Frm_ValidaCPF_UC U = new Frm_ValidaCPF_UC();
+            TabPage TB = new TabPage();
+            TB.Name = "Valida CPF " + ControleValidaCPF;
+            TB.Text = "Valida CPF " + ControleValidaCPF;
+            TB.ImageIndex = 3;
+            TB.Controls.Add(U);
+            Tbc_Aplicacoes.TabPages.Add(TB);
         }
 
         private void validaCPF2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_ValidaCPF2 f = new Frm_ValidaCPF2();
-            f.MdiParent = this;
-            f.Show();
+            ControleValidaCPF2 += 1;
+
+            Frm_ValidaCPF2_UC U = new Frm_ValidaCPF2_UC();
+            TabPage TB = new TabPage();
+            TB.Name = "Valida CPF2 " + ControleValidaCPF2;
+            TB.Text = "Valida CPF2 " + ControleValidaCPF2;
+            TB.ImageIndex = 4;
+            TB.Controls.Add(U);
+            Tbc_Aplicacoes.TabPages.Add(TB);
         }
 
         private void validaSenhaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_ValidaSenha f = new Frm_ValidaSenha();
-            f.MdiParent = this;
-            f.Show();
+            ControleValidaSenha += 1;
+
+            Frm_ValidaSenha_UC U = new Frm_ValidaSenha_UC();
+            TabPage TB = new TabPage();
+            TB.Name = "Valida Senha " + ControleValidaSenha;
+            TB.Text = "Valida Senha " + ControleValidaSenha;
+            TB.ImageIndex = 5;
+            TB.Controls.Add(U);
+            Tbc_Aplicacoes.TabPages.Add(TB);
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
