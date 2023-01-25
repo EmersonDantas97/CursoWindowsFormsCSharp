@@ -70,11 +70,23 @@
     <Compile Include="Formulários Curso 1\Frm_Mascara.Designer.cs">
       <DependentUpon>Frm_Mascara.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_DemonstracaoKey_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frm_DemonstracaoKey_UC.Designer.cs">
+      <DependentUpon>Frm_DemonstracaoKey_UC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_HelloWorld_UC.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Frm_HelloWorld_UC.Designer.cs">
       <DependentUpon>Frm_HelloWorld_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Mascara_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frm_Mascara_UC.Designer.cs">
+      <DependentUpon>Frm_Mascara_UC.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Principal.cs">
       <SubType>Form</SubType>
@@ -129,8 +141,14 @@
     <EmbeddedResource Include="Formulários Curso 1\Frm_Mascara.resx">
       <DependentUpon>Frm_Mascara.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_DemonstracaoKey_UC.resx">
+      <DependentUpon>Frm_DemonstracaoKey_UC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_HelloWorld_UC.resx">
       <DependentUpon>Frm_HelloWorld_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Mascara_UC.resx">
+      <DependentUpon>Frm_Mascara_UC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Principal.resx">
       <DependentUpon>Frm_Principal.cs</DependentUpon>
