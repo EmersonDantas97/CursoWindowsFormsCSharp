@@ -16,6 +16,7 @@ namespace CursoWindowsForms
         int ControleDemonstracaoKey = 0;
         int ControleMascara = 0;
         int ControleValidaCPF = 0;
+        int ControleValidaCPF2 = 0;
 
         public Frm_Principal_Menu_UC()
         {
@@ -75,9 +76,15 @@ namespace CursoWindowsForms
 
         private void validaCPF2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_ValidaCPF2 f = new Frm_ValidaCPF2();
-            f.MdiParent = this;
-            f.Show();
+            ControleValidaCPF2 += 1;
+
+            Frm_ValidaCPF2_UC U = new Frm_ValidaCPF2_UC();
+            TabPage TB = new TabPage();
+            TB.Name = "Valida CPF2 " + ControleValidaCPF2;
+            TB.Text = "Valida CPF2 " + ControleValidaCPF2;
+            TB.ImageIndex = 4;
+            TB.Controls.Add(U);
+            Tbc_Aplicacoes.TabPages.Add(TB);
         }
 
         private void validaSenhaToolStripMenuItem_Click(object sender, EventArgs e)

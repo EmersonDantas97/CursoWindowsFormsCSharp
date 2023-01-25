@@ -46,3 +46,4 @@ D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindow
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_DemonstracaoKey_UC.resources
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_Mascara_UC.resources
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_ValidaCPF_UC.resources
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_ValidaCPF2_UC.resources
