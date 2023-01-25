@@ -20,6 +20,7 @@ namespace CursoWindowsForms
         private void demonstraçãoKeyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_DemonstracaoKey f = new Frm_DemonstracaoKey();
+            //f.Show(); Não travaria o objeto pai.
             f.ShowDialog();
         }
 
@@ -27,6 +28,7 @@ namespace CursoWindowsForms
         {
             Frm_HelloWord f = new Frm_HelloWord();
             f.ShowDialog();
+
         }
 
         private void máscaraToolStripMenuItem_Click(object sender, EventArgs e)
