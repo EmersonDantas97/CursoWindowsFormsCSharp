@@ -10,20 +10,29 @@ using System.Windows.Forms;
 
 namespace CursoWindowsForms
 {
-    public partial class Frm_Questao : Form
+    public partial class Frm_Login : Form
     {
-        public Frm_Questao(string nomeImagem, string mensagem)
+        public string senha;
+        public string usuario;
+
+        public Frm_Login()
         {
             InitializeComponent();
 
-            Image MyImage = (Image)global::CursoWindowsForms.Properties.Resources.ResourceManager.GetObject(nomeImagem);
-            Pic_Imagem.Image = MyImage;
-            Lbl_Questao.Text = mensagem;
+            Lbl_Login.Text = "Login";
+            Lbl_Senha.Text = "Senha";
+            Btn_Ok.Text = "Ok";
+            Btn_Cancel.Text = "Cancel";
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Btn_Ok_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Yes;
+            DialogResult = DialogResult.OK;
+            
+            senha = Txt_Password.Text;
+            usuario = Txt_Login.Text;
+
             this.Close();
         }
 
