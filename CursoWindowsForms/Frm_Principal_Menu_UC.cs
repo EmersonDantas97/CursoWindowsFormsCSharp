@@ -154,5 +154,12 @@ namespace CursoWindowsForms
             }
 
         }
+
+        private void conectarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Login f = new Frm_Login();
+            f.ShowDialog();
+
+        }
     }
 }
