@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursoWindowsFormsBiblioteca;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,11 @@ namespace CursoWindowsForms
         public Frm_Principal_Menu_UC()
         {
             InitializeComponent();
+
+            novoToolStripMenuItem.Enabled = false;
+            apagarAbaToolStripMenuItem.Enabled = false;
+            açõesToolStripMenuItem.Enabled = false;
+            windowsToolStripMenuItem.Enabled = false;
         }
         private void demonstraçãoKeyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -159,6 +165,24 @@ namespace CursoWindowsForms
         {
             Frm_Login f = new Frm_Login();
             f.ShowDialog();
+
+            if (CursoWindowsFormsBiblioteca.Cls_Uteis.validaSenhaLogin(f.senha) && f.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show("Seja bem vindo " + f.usuario + "!", "Boas Vindas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                novoToolStripMenuItem.Enabled = true;
+                apagarAbaToolStripMenuItem.Enabled = true;
+                açõesToolStripMenuItem.Enabled = true;
+                windowsToolStripMenuItem.Enabled = true;
+                conectarToolStripMenuItem.Enabled = false;
+
+            this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                MessageBox.Show("Senha inválida", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
     }
