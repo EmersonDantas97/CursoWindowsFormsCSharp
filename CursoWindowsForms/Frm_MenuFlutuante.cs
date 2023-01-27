@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Image = System.Drawing.Image;
 
 namespace CursoWindowsForms
 {
@@ -21,12 +18,40 @@ namespace CursoWindowsForms
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                var PosicaoX = e.X;
-                var PosicaoY = e.Y;
+                var ContextMenu = new ContextMenuStrip();
 
-                MessageBox.Show("Você clicou no botão direito! A posicao foi " + PosicaoX + " e " + PosicaoY + ".");
+                var vToolTip001 = DesenhaItensMenu("Item 1", "Frm_ValidaSenha");
+                var vToolTip002 = DesenhaItensMenu("Item 2", "Frm_ValidaCPF");
+                
+                ContextMenu.Items.Add(vToolTip001);
+                ContextMenu.Items.Add(vToolTip002);
 
+                ContextMenu.Show(this, new Point(e.X, e.Y));
+
+                vToolTip001.Click += new System.EventHandler(vToolTip001_Click);
+                vToolTip002.Click += new System.EventHandler(vToolTip002_Click);
             }
+        }
+
+        void vToolTip001_Click(object sender1, EventArgs e1)
+        {
+            MessageBox.Show("Opcao 1 selecionada!");
+        }
+
+        void vToolTip002_Click(object sender1, EventArgs e1)
+        {
+            MessageBox.Show("Opcao 2 selecionada!");
+        }
+
+        ToolStripMenuItem DesenhaItensMenu(string text, string nomeImagem)
+        {
+            var vToolTip = new ToolStripMenuItem();
+            Image MyImage = (Image)global::CursoWindowsForms.Properties.Resources.ResourceManager.GetObject(nomeImagem);
+
+            vToolTip.Text = text;
+            vToolTip.Image = MyImage;
+
+            return vToolTip;
         }
     }
 }
