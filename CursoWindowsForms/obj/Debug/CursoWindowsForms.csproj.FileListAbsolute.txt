@@ -53,3 +53,4 @@ D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindow
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_Login.resources
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_MouseEventos.resources
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_MouseCaptura.resources
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_MouseCursor.resources
