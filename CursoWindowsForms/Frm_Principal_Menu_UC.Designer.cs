@@ -50,6 +50,7 @@
             this.verticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Tbc_Aplicacoes = new System.Windows.Forms.TabControl();
             this.Iml_Imagens = new System.Windows.Forms.ImageList(this.components);
+            this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnu_Principal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +70,7 @@
             // 
             this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.conectarToolStripMenuItem,
+            this.desconectarToolStripMenuItem,
             this.novoToolStripMenuItem,
             this.apagarAbaToolStripMenuItem,
             this.sairToolStripMenuItem});
@@ -236,6 +238,13 @@
             this.Iml_Imagens.Images.SetKeyName(5, "Frm_ValidaSenha.png");
             this.Iml_Imagens.Images.SetKeyName(6, "folder.png");
             // 
+            // desconectarToolStripMenuItem
+            // 
+            this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
+            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.desconectarToolStripMenuItem.Text = "Desconectar";
+            this.desconectarToolStripMenuItem.Click += new System.EventHandler(this.desconectarToolStripMenuItem_Click);
+            // 
             // Frm_Principal_Menu_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +252,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Tbc_Aplicacoes);
             this.Controls.Add(this.Mnu_Principal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.Mnu_Principal;
             this.Name = "Frm_Principal_Menu_UC";
@@ -277,5 +287,6 @@
         private System.Windows.Forms.ToolStripMenuItem açõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abrirImagensToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem conectarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem desconectarToolStripMenuItem;
     }
 }

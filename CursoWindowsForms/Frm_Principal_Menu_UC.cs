@@ -29,6 +29,7 @@ namespace CursoWindowsForms
             apagarAbaToolStripMenuItem.Enabled = false;
             açõesToolStripMenuItem.Enabled = false;
             windowsToolStripMenuItem.Enabled = false;
+            desconectarToolStripMenuItem.Enabled = false;
         }
         private void demonstraçãoKeyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -156,9 +157,7 @@ namespace CursoWindowsForms
                 TB.ImageIndex = 6;
                 TB.Controls.Add(U);
                 Tbc_Aplicacoes.TabPages.Add(TB);
-
             }
-
         }
 
         private void conectarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -169,20 +168,44 @@ namespace CursoWindowsForms
             if (CursoWindowsFormsBiblioteca.Cls_Uteis.validaSenhaLogin(f.senha) && f.DialogResult == DialogResult.OK)
             {
                 MessageBox.Show("Seja bem vindo " + f.usuario + "!", "Boas Vindas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
                 novoToolStripMenuItem.Enabled = true;
                 apagarAbaToolStripMenuItem.Enabled = true;
                 açõesToolStripMenuItem.Enabled = true;
                 windowsToolStripMenuItem.Enabled = true;
                 conectarToolStripMenuItem.Enabled = false;
+                desconectarToolStripMenuItem.Enabled = true;
 
-            this.WindowState = FormWindowState.Maximized;
+                this.WindowState = FormWindowState.Maximized;
             }
             else
             {
                 MessageBox.Show("Senha inválida", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
+        }
+
+        private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Questao f = new Frm_Questao("interrogation_mark", "Deseja desconectar?");
+            f.ShowDialog();
+
+            if (f.DialogResult == DialogResult.Yes)
+            {
+                novoToolStripMenuItem.Enabled = false;
+                apagarAbaToolStripMenuItem.Enabled = false;
+                açõesToolStripMenuItem.Enabled = false;
+                windowsToolStripMenuItem.Enabled = false;
+                conectarToolStripMenuItem.Enabled = true;
+                desconectarToolStripMenuItem.Enabled = false;
+
+                for (int i = Tbc_Aplicacoes.TabPages.Count - 1; i >= 0; i += -1)
+                {
+                    Tbc_Aplicacoes.TabPages.Remove(Tbc_Aplicacoes.TabPages[i]);
+                }
+
+            }
 
         }
     }
