@@ -20,6 +20,7 @@ namespace CursoWindowsForms
         int ControleValidaCPF2 = 0;
         int ControleValidaSenha = 0;
         int ControleArquivoImagem = 0;
+        int ControleCadastroClientes = 0;
 
         public Frm_Principal_Menu_UC()
         {
@@ -30,6 +31,8 @@ namespace CursoWindowsForms
             açõesToolStripMenuItem.Enabled = false;
             windowsToolStripMenuItem.Enabled = false;
             desconectarToolStripMenuItem.Enabled = false;
+            cadastrosToolStripMenuItem.Enabled = false;
+
         }
         private void demonstraçãoKeyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -133,7 +136,7 @@ namespace CursoWindowsForms
         {
             if (!(Tbc_Aplicacoes.SelectedTab == null))
             {
-                Tbc_Aplicacoes.TabPages.Remove(Tbc_Aplicacoes.SelectedTab);
+                ApagaAba(Tbc_Aplicacoes.SelectedTab);
             }
         }
 
@@ -175,6 +178,7 @@ namespace CursoWindowsForms
                 windowsToolStripMenuItem.Enabled = true;
                 conectarToolStripMenuItem.Enabled = false;
                 desconectarToolStripMenuItem.Enabled = true;
+                cadastrosToolStripMenuItem.Enabled = true;
 
                 this.WindowState = FormWindowState.Maximized;
             }
@@ -199,10 +203,11 @@ namespace CursoWindowsForms
                 windowsToolStripMenuItem.Enabled = false;
                 conectarToolStripMenuItem.Enabled = true;
                 desconectarToolStripMenuItem.Enabled = false;
+                cadastrosToolStripMenuItem.Enabled = false;
 
                 for (int i = Tbc_Aplicacoes.TabPages.Count - 1; i >= 0; i += -1)
                 {
-                    Tbc_Aplicacoes.TabPages.Remove(Tbc_Aplicacoes.TabPages[i]);
+                    ApagaAba(Tbc_Aplicacoes.TabPages[i]);
                 }
 
             }
@@ -240,7 +245,7 @@ namespace CursoWindowsForms
         void vToolTip001_Click(object sender1, EventArgs e1)
         {
             if (!(Tbc_Aplicacoes.SelectedTab == null))
-                Tbc_Aplicacoes.TabPages.Remove(Tbc_Aplicacoes.SelectedTab);
+                ApagaAba(Tbc_Aplicacoes.SelectedTab);
         }
 
         // Apagar a Esquerda
@@ -270,12 +275,12 @@ namespace CursoWindowsForms
         void apagarDireita(int abaSelecionada)
         {
             for (int i = Tbc_Aplicacoes.TabCount - 1; i > abaSelecionada; i += -1)
-                Tbc_Aplicacoes.TabPages.Remove(Tbc_Aplicacoes.TabPages[i]);
+                ApagaAba(Tbc_Aplicacoes.TabPages[i]);
         }
         void apagarEsquerda(int abaSelecionada)
         {
             for (int i = abaSelecionada - 1; i >= 0; i += -1)
-                Tbc_Aplicacoes.TabPages.Remove(Tbc_Aplicacoes.TabPages[i]);
+                ApagaAba(Tbc_Aplicacoes.TabPages[i]);
         }
 
         ToolStripMenuItem DesenhaItensMenu(string text, string nomeImagem)
@@ -287,6 +292,36 @@ namespace CursoWindowsForms
             vToolTip.Image = MyImage;
 
             return vToolTip;
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ControleCadastroClientes == 0)
+            {
+                ControleCadastroClientes += 1;
+                Frm_CadastroCliente_UC U = new Frm_CadastroCliente_UC();
+                U.Dock = DockStyle.Fill;
+                TabPage TB = new TabPage();
+                TB.Name = "Cadastro de Clientes";
+                TB.Text = "Cadastro de Clientes";
+                TB.ImageIndex = 7;
+                TB.Controls.Add(U);
+                Tbc_Aplicacoes.TabPages.Add(TB);
+            }
+            else
+            {
+                MessageBox.Show("Não posso abrir o Cadastro de Clientes, porque ele já está aberto.",
+                    "Banco ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        void ApagaAba(TabPage TB)
+        {
+            if (TB.Name == "Cadastro de Clientes")
+            {
+                ControleCadastroClientes = 0;
+            }
+            Tbc_Aplicacoes.TabPages.Remove(TB);
         }
     }
 }
