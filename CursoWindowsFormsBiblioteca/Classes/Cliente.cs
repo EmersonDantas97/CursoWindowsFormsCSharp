@@ -5,6 +5,8 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations; // Para o comando Required funcione, precisamos adicionar referência. 
+using System.Runtime.Remoting.Contexts;
 
 namespace CursoWindowsFormsBiblioteca.Classes
 {
@@ -12,6 +14,7 @@ namespace CursoWindowsFormsBiblioteca.Classes
     {
         public class Unit
         {
+            [Required(ErrorMessage = "Código do cliente é obrigatório!")]
             public string Id { get; set; }
             public string Nome { get; set; }
             public string NomePai { get; set; }
@@ -27,6 +30,23 @@ namespace CursoWindowsFormsBiblioteca.Classes
             public string Telefone { get; set; }
             public string Profissao { get; set; }
             public double RendaFamiliar { get; set; }
+
+            public void ValidaClasse()
+            {
+                ValidationContext context = new ValidationContext(this, serviceProvider: null, items: null);
+                List<ValidationResult> results = new List<ValidationResult>();
+                bool isValid = Validator.TryValidateObject(this, context, results, true);
+
+                if (isValid == false)
+                {
+                    StringBuilder sbrErrors = new StringBuilder();
+                    foreach (var validationResult in results)
+                    {
+                        sbrErrors.AppendLine(validationResult.ErrorMessage);
+                    }
+                    throw new ValidationException(sbrErrors.ToString());
+                }
+            }
         }
 
         public class List
