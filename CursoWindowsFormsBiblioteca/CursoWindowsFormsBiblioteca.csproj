@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Cls_Uteis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
