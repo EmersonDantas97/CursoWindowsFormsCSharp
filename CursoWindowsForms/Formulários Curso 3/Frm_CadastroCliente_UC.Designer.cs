@@ -65,7 +65,7 @@
             this.Lbl_CPF = new System.Windows.Forms.Label();
             this.Grp_Codigo = new System.Windows.Forms.GroupBox();
             this.Txt_Codigo = new System.Windows.Forms.TextBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.Tls_Principal = new System.Windows.Forms.ToolStrip();
             this.novoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.abrirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.salvarToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -76,7 +76,7 @@
             this.Grp_DadosPessoais.SuspendLayout();
             this.Grp_Genero.SuspendLayout();
             this.Grp_Codigo.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.Tls_Principal.SuspendLayout();
             this.SuspendLayout();
             // 
             // Grp_Outros
@@ -427,19 +427,19 @@
             this.Txt_Codigo.Size = new System.Drawing.Size(209, 20);
             this.Txt_Codigo.TabIndex = 0;
             // 
-            // toolStrip1
+            // Tls_Principal
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Tls_Principal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoToolStripButton,
             this.abrirToolStripButton,
             this.salvarToolStripButton,
             this.ApagatoolStripButton1,
             this.LimpartoolStrpButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(842, 25);
-            this.toolStrip1.TabIndex = 60;
-            this.toolStrip1.Text = "toolStrip1";
+            this.Tls_Principal.Location = new System.Drawing.Point(0, 0);
+            this.Tls_Principal.Name = "Tls_Principal";
+            this.Tls_Principal.Size = new System.Drawing.Size(842, 25);
+            this.Tls_Principal.TabIndex = 60;
+            this.Tls_Principal.Text = "toolStrip1";
             // 
             // novoToolStripButton
             // 
@@ -449,6 +449,7 @@
             this.novoToolStripButton.Name = "novoToolStripButton";
             this.novoToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.novoToolStripButton.Text = "&Novo";
+            this.novoToolStripButton.Click += new System.EventHandler(this.novoToolStripButton_Click);
             // 
             // abrirToolStripButton
             // 
@@ -458,6 +459,7 @@
             this.abrirToolStripButton.Name = "abrirToolStripButton";
             this.abrirToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.abrirToolStripButton.Text = "&Abrir";
+            this.abrirToolStripButton.Click += new System.EventHandler(this.abrirToolStripButton_Click);
             // 
             // salvarToolStripButton
             // 
@@ -467,6 +469,7 @@
             this.salvarToolStripButton.Name = "salvarToolStripButton";
             this.salvarToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.salvarToolStripButton.Text = "&Salvar";
+            this.salvarToolStripButton.Click += new System.EventHandler(this.salvarToolStripButton_Click);
             // 
             // ApagatoolStripButton1
             // 
@@ -476,6 +479,7 @@
             this.ApagatoolStripButton1.Name = "ApagatoolStripButton1";
             this.ApagatoolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.ApagatoolStripButton1.Text = "toolStripButton1";
+            this.ApagatoolStripButton1.Click += new System.EventHandler(this.ApagatoolStripButton1_Click);
             // 
             // LimpartoolStrpButton1
             // 
@@ -485,12 +489,13 @@
             this.LimpartoolStrpButton1.Name = "LimpartoolStrpButton1";
             this.LimpartoolStrpButton1.Size = new System.Drawing.Size(23, 22);
             this.LimpartoolStrpButton1.Text = "toolStripButton1";
+            this.LimpartoolStrpButton1.Click += new System.EventHandler(this.LimpartoolStrpButton1_Click);
             // 
             // Frm_CadastroCliente_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.Tls_Principal);
             this.Controls.Add(this.Grp_Outros);
             this.Controls.Add(this.Grp_Endereco);
             this.Controls.Add(this.Grp_DadosPessoais);
@@ -507,8 +512,8 @@
             this.Grp_Genero.PerformLayout();
             this.Grp_Codigo.ResumeLayout(false);
             this.Grp_Codigo.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.Tls_Principal.ResumeLayout(false);
+            this.Tls_Principal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -552,7 +557,7 @@
         private System.Windows.Forms.Label Lbl_CPF;
         private System.Windows.Forms.GroupBox Grp_Codigo;
         private System.Windows.Forms.TextBox Txt_Codigo;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip Tls_Principal;
         private System.Windows.Forms.ToolStripButton novoToolStripButton;
         private System.Windows.Forms.ToolStripButton abrirToolStripButton;
         private System.Windows.Forms.ToolStripButton salvarToolStripButton;
