@@ -50,3 +50,8 @@ D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWind
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWindowsForms.csproj.CopyComplete
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWindowsForms.exe
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWindowsForms.pdb
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWindowsForms.Frm_CadastroCliente_UC.resources
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWindowsForms.Frm_MenuFlutuante.resources
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWindowsForms.Frm_MouseCaptura.resources
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWindowsForms.Frm_MouseCursor.resources
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWindowsForms.Frm_MouseEventos.resources
