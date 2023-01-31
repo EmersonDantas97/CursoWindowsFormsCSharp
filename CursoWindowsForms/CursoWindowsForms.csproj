@@ -48,6 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -307,6 +308,7 @@
     <Content Include="Imagens\DeleteLeft.png" />
     <Content Include="Imagens\DeleteRight.png" />
     <Content Include="Imagens\DeleteTab.png" />
+    <Content Include="Imagens\ExcluirBarra.png" />
     <Content Include="Imagens\folder.ico" />
     <Content Include="Imagens\folder.png" />
     <Content Include="Imagens\Frm_DemonstracaoKey.ico" />
@@ -324,6 +326,7 @@
     <Content Include="Imagens\Frm_ValidaSenha.png" />
     <Content Include="Imagens\interrogation-mark.ico" />
     <Content Include="Imagens\interrogation-mark.png" />
+    <Content Include="Imagens\LimparBarra.png" />
     <Content Include="Imagens\money.png" />
     <Content Include="Imagens\user.png" />
     <Content Include="Imagens\user1.png" />

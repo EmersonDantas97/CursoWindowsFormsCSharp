@@ -111,6 +111,16 @@ namespace CursoWindowsForms.Properties {
         }
         
         /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExcluirBarra {
+            get {
+                object obj = ResourceManager.GetObject("ExcluirBarra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Icon semelhante a (Ícone).
         /// </summary>
         internal static System.Drawing.Icon folder {
@@ -277,6 +287,16 @@ namespace CursoWindowsForms.Properties {
             get {
                 object obj = ResourceManager.GetObject("interrogation_mark1", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LimparBarra {
+            get {
+                object obj = ResourceManager.GetObject("LimparBarra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
