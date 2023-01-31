@@ -96,6 +96,7 @@ namespace CursoWindowsForms
             {
                 Cliente.Unit c = new Cliente.Unit();
                 c.Id = Txt_Codigo.Text;
+                c.Nome = 
                 c.ValidaClasse();
 
                 MessageBox.Show("Classe foi inicializada sem erros!", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
