@@ -99,10 +99,16 @@ namespace CursoWindowsForms
 
                 C = LeituraFormulario();
                 C.ValidaClasse();
+                C.ValidaComplemento();
 
                 MessageBox.Show("Classe foi inicializada sem erros!", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException ex1)
+            {
+
+                MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex1)
             {
 
                 MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -140,11 +146,11 @@ namespace CursoWindowsForms
 
             if (Chk_TemPai.Checked)
             {
-                c.TemPai = true;
+                c.NaoTemPai = true;
             }
             else
             {
-                c.TemPai = false;
+                c.NaoTemPai = false;
             }
 
             if (Rdb_Feminino.Checked)
