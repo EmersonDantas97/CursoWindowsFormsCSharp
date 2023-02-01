@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CursoWindowsFormsBiblioteca.Classes;
 using System.ComponentModel.DataAnnotations;
+using CursoWindowsFormsBiblioteca;
 
 namespace CursoWindowsForms
 {
@@ -95,9 +96,13 @@ namespace CursoWindowsForms
         {
             try
             {
-                Cliente.Unit C = new Cliente.Unit();
+                var vJson = Cls_Uteis.GeraJSONCEP("18950402");
 
-                C = LeituraFormulario();
+                Cep.Unit CEP = new Cep.Unit();
+                CEP = Cep.DesSerializedClassUnit(vJson);
+
+                Cliente.Unit C = new Cliente.Unit();
+                C = LeituraFormulario(); 
                 C.ValidaClasse();
                 C.ValidaComplemento();
 
