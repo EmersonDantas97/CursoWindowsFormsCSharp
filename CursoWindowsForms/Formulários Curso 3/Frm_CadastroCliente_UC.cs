@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.VisualBasic;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CursoWindowsFormsBiblioteca.Classes;
 using System.ComponentModel.DataAnnotations;
+using CursoWindowsFormsBiblioteca;
 
 namespace CursoWindowsForms
 {
@@ -75,7 +77,6 @@ namespace CursoWindowsForms
             Tls_Principal.Items[2].ToolTipText = "Atualize um cliente já existente";
             Tls_Principal.Items[3].ToolTipText = "Apaga o cliente selecionado";
             Tls_Principal.Items[4].ToolTipText = "Limpa dados da tela de entrada de dados";
-
         }
 
         private void Chk_TemPai_CheckedChanged(object sender, EventArgs e)
@@ -94,14 +95,19 @@ namespace CursoWindowsForms
         {
             try
             {
-                Cliente.Unit c = new Cliente.Unit();
-                c.Id = Txt_Codigo.Text;
-                c.Nome = 
-                c.ValidaClasse();
+                Cliente.Unit C = new Cliente.Unit();
+                C = LeituraFormulario();
+                C.ValidaClasse();
+                C.ValidaComplemento();
 
                 MessageBox.Show("Classe foi inicializada sem erros!", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException ex1)
+            {
+
+                MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex1)
             {
 
                 MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -127,6 +133,86 @@ namespace CursoWindowsForms
         private void LimpartoolStrpButton1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Cliquei limpar");
+        }
+
+        Cliente.Unit LeituraFormulario()
+        {
+            Cliente.Unit c = new Cliente.Unit();
+            c.Id = Txt_Codigo.Text;
+            c.Nome = Txt_NomeCliente.Text;
+            c.NomeMae = Txt_NomeMae.Text;
+            c.NomePai = Txt_NomePai.Text;
+
+            if (Chk_TemPai.Checked)
+            {
+                c.NaoTemPai = true;
+            }
+            else
+            {
+                c.NaoTemPai = false;
+            }
+
+            if (Rdb_Feminino.Checked)
+            {
+                c.Genero = 1;
+            }
+            if (Rdb_Masculino.Checked)
+            {
+                c.Genero = 0;
+            }
+            if (Rdb_Indefinido.Checked)
+            {
+                c.Genero = 2;
+            }
+
+            c.CPF = Txt_CPF.Text;
+            c.CEP = Txt_CEP.Text;
+            c.Logradouro = Txt_Logradouro.Text;
+            c.Cidade = Txt_Cidade.Text;
+            c.Bairro = Txt_Bairro.Text;
+
+            if (Cmb_Estados.SelectedIndex < 0)
+            {
+                c.Estado = "";
+            }
+            else
+            {
+                c.Estado = Cmb_Estados.Items[Cmb_Estados.SelectedIndex].ToString();
+            }
+
+            c.Telefone = Txt_Telefone.Text;
+            c.Profissao = Txt_Profissao.Text;
+
+            if (Information.IsNumeric(Txt_RendaFamiliar.Text))
+            {
+                double vRenda = Convert.ToDouble(Txt_RendaFamiliar.Text);
+
+                if (vRenda < 0)
+                {
+                    c.RendaFamiliar = 0;
+                }
+                else
+                {
+                    c.RendaFamiliar = vRenda;
+                }
+            }
+            return c;
+        }
+
+        private void Txt_CEP_Leave(object sender, EventArgs e)
+        {
+            string stringcep = Txt_CEP.Text;
+
+            if (stringcep.Length == 8 && Information.IsNumeric(stringcep))
+            {
+                var vJson = Cls_Uteis.GeraJSONCEP(stringcep);
+                Cep.Unit CEP = new Cep.Unit();
+                CEP = Cep.DesSerializedClassUnit(vJson);
+
+                Txt_Logradouro.Text = CEP.logradouro;
+                Txt_Bairro.Text = CEP.bairro;
+                Txt_Cidade.Text = CEP.localidade;
+            }
         }
     }
 }

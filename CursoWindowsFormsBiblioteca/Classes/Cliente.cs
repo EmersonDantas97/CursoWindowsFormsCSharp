@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations; // Para o comando Required funcione, precisamos adicionar referência. 
 using System.Text;
 
@@ -23,7 +24,7 @@ namespace CursoWindowsFormsBiblioteca.Classes
             [Required(ErrorMessage = "Nome da mãe é obrigatório!")]
             [StringLength(50, ErrorMessage = "Nome da mãe do cliente deve ter no máximo 50 caracteres!")]
             public string NomeMae { get; set; }
-            public bool TemPai { get; set; }
+            public bool NaoTemPai { get; set; }
 
             [Required(ErrorMessage = "CPF é obrigatório!")]
             [RegularExpression("([0-9])+", ErrorMessage = "O CPF deve ter somente números!")]
@@ -82,6 +83,31 @@ namespace CursoWindowsFormsBiblioteca.Classes
                     throw new ValidationException(sbrErrors.ToString());
                 }
             }
+
+            public void ValidaComplemento()
+            {
+                if (this.NomePai == this.NomeMae)
+                {
+                    throw new Exception("Nome do Pai igual ao Nome da Mãe!");
+                }
+
+                if (this.NaoTemPai == false)
+                {
+                    if (this.NomePai == "")
+                    {
+                        throw new Exception("Nome do pai não pode estar vazio!");
+                    }
+                }
+
+                bool validaCPF = Cls_Uteis.Valida(this.CPF);
+
+                if (validaCPF == false)
+                {
+                    throw new Exception("CPF inválido!");
+                }
+            }
+
+
         }
 
         public class List
