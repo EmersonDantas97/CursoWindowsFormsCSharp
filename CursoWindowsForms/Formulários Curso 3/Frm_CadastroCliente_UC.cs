@@ -77,7 +77,6 @@ namespace CursoWindowsForms
             Tls_Principal.Items[2].ToolTipText = "Atualize um cliente já existente";
             Tls_Principal.Items[3].ToolTipText = "Apaga o cliente selecionado";
             Tls_Principal.Items[4].ToolTipText = "Limpa dados da tela de entrada de dados";
-
         }
 
         private void Chk_TemPai_CheckedChanged(object sender, EventArgs e)
