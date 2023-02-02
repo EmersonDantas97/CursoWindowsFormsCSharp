@@ -55,3 +55,5 @@ D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWind
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWindowsForms.Frm_MouseCaptura.resources
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWindowsForms.Frm_MouseCursor.resources
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Release\CursoWindowsForms.Frm_MouseEventos.resources
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\bin\Release\Newtonsoft.Json.dll
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\bin\Release\Newtonsoft.Json.xml
