@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CursoWindowsFormsBiblioteca.Classes;
+using CursoWindowsFormsBiblioteca.Databases;
 using System.ComponentModel.DataAnnotations;
 using CursoWindowsFormsBiblioteca;
 
@@ -102,6 +103,17 @@ namespace CursoWindowsForms
                 C.ValidaComplemento();
 
                 string clienteJson = Cliente.SerializedClassUnit(C);
+
+                Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
+
+                if (f.status)
+                {
+                    MessageBox.Show("Ok: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 MessageBox.Show("Cliente sera adicionado! " + clienteJson, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
