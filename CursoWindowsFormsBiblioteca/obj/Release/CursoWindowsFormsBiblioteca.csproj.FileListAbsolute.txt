@@ -10,3 +10,6 @@ D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\obj\Release
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\obj\Release\CursoWindowsFormsBiblioteca.csproj.CoreCompileInputs.cache
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\obj\Release\CursoWindowsFormsBiblioteca.dll
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\obj\Release\CursoWindowsFormsBiblioteca.pdb
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\bin\Release\Newtonsoft.Json.dll
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\bin\Release\Newtonsoft.Json.xml
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\obj\Release\CursoWindowsFormsBiblioteca.csproj.CopyComplete
