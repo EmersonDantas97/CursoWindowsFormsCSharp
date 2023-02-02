@@ -212,6 +212,18 @@ namespace CursoWindowsForms
                 Txt_Logradouro.Text = CEP.logradouro;
                 Txt_Bairro.Text = CEP.bairro;
                 Txt_Cidade.Text = CEP.localidade;
+
+                Cmb_Estados.SelectedIndex = -1;
+
+                for (int i = 0; i < Cmb_Estados.Items.Count - 1; i++)
+                {
+                    var vlrPosicao = Strings.InStr(Cmb_Estados.Items[i].ToString(), "(" + CEP.uf + ")");
+
+                    if (vlrPosicao > 0)
+                    {
+                        Cmb_Estados.SelectedIndex = i;
+                    }
+                }
             }
         }
     }
