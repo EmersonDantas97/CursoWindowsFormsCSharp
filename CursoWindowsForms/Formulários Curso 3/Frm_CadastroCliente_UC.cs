@@ -96,13 +96,8 @@ namespace CursoWindowsForms
         {
             try
             {
-                var vJson = Cls_Uteis.GeraJSONCEP("18950402");
-
-                Cep.Unit CEP = new Cep.Unit();
-                CEP = Cep.DesSerializedClassUnit(vJson);
-
                 Cliente.Unit C = new Cliente.Unit();
-                C = LeituraFormulario(); 
+                C = LeituraFormulario();
                 C.ValidaClasse();
                 C.ValidaComplemento();
 
@@ -203,6 +198,22 @@ namespace CursoWindowsForms
                 }
             }
             return c;
+        }
+
+        private void Txt_CEP_Leave(object sender, EventArgs e)
+        {
+            string stringcep = Txt_CEP.Text;
+
+            if (stringcep.Length == 8 && Information.IsNumeric(stringcep))
+            {
+                var vJson = Cls_Uteis.GeraJSONCEP(stringcep);
+                Cep.Unit CEP = new Cep.Unit();
+                CEP = Cep.DesSerializedClassUnit(vJson);
+
+                Txt_Logradouro.Text = CEP.logradouro;
+                Txt_Bairro.Text = CEP.bairro;
+                Txt_Cidade.Text = CEP.localidade;
+            }
         }
     }
 }
