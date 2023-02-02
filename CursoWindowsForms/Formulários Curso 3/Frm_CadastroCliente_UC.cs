@@ -24,6 +24,7 @@ namespace CursoWindowsForms
             Grp_DadosPessoais.Text = "Dados Pessoais";
             Grp_Endereco.Text = "Endereço";
             Grp_Outros.Text = "Outros";
+
             Lbl_Bairro.Text = "Bairro";
             Lbl_CEP.Text = "CEP";
             Lbl_Complemento.Text = "Complemento";
@@ -37,10 +38,13 @@ namespace CursoWindowsForms
             Lbl_RendaFamiliar.Text = "Renda Familiar";
             Lbl_Telefone.Text = "Telefone";
             Lbl_Cidade.Text = "Cidade";
+
             Chk_TemPai.Text = "Pai desconhecido";
+
             Rdb_Masculino.Text = "Masculino";
             Rdb_Feminino.Text = "Feminino";
             Rdb_Indefinido.Text = "Indefinido";
+
             Grp_Genero.Text = "Genero";
 
             Cmb_Estados.Items.Clear();
@@ -82,13 +86,9 @@ namespace CursoWindowsForms
         private void Chk_TemPai_CheckedChanged(object sender, EventArgs e)
         {
             if (Chk_TemPai.Checked)
-            {
                 Txt_NomePai.Enabled = false;
-            }
             else
-            {
                 Txt_NomePai.Enabled = true;
-            }
         }
 
         private void novoToolStripButton_Click(object sender, EventArgs e)
@@ -132,7 +132,27 @@ namespace CursoWindowsForms
 
         private void LimpartoolStrpButton1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cliquei limpar");
+            LimparFormulario();
+        }
+
+        private void LimparFormulario()
+        {
+            Txt_Codigo.Text = "";
+            Txt_Bairro.Text = "";
+            Txt_CEP.Text = "";
+            Txt_Complemento.Text = "";
+            Txt_CPF.Text = "";
+            Txt_Logradouro.Text = "";
+            Txt_NomeCliente.Text = "";
+            Txt_NomeMae.Text = "";
+            Txt_NomePai.Text = "";
+            Txt_Profissao.Text = "";
+            Txt_RendaFamiliar.Text = "";
+            Txt_Telefone.Text = "";
+            Txt_Cidade.Text = "";
+            Cmb_Estados.SelectedIndex = -1;
+            Chk_TemPai.Checked = false;
+            Rdb_Masculino.Checked = true; ;
         }
 
         Cliente.Unit LeituraFormulario()
