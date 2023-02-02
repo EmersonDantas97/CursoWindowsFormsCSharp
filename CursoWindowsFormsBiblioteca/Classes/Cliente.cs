@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations; // Para o comando Required funcione, precisamos adicionar referência. 
 using System.Text;
+using Newtonsoft.Json;
+using static CursoWindowsFormsBiblioteca.Classes.Cliente;
 
 namespace CursoWindowsFormsBiblioteca.Classes
 {
@@ -113,6 +116,11 @@ namespace CursoWindowsFormsBiblioteca.Classes
         public class List
         {
             public List<Unit> ListUnit { get; set; }
+        }
+
+        public static string SerializedClassUnit(Unit unit)
+        {
+            return JsonConvert.SerializeObject(unit);
         }
     }
 }
