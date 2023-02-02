@@ -24,6 +24,7 @@ namespace CursoWindowsForms
             Grp_DadosPessoais.Text = "Dados Pessoais";
             Grp_Endereco.Text = "Endereço";
             Grp_Outros.Text = "Outros";
+            Grp_Genero.Text = "Genero";
 
             Lbl_Bairro.Text = "Bairro";
             Lbl_CEP.Text = "CEP";
@@ -44,8 +45,6 @@ namespace CursoWindowsForms
             Rdb_Masculino.Text = "Masculino";
             Rdb_Feminino.Text = "Feminino";
             Rdb_Indefinido.Text = "Indefinido";
-
-            Grp_Genero.Text = "Genero";
 
             Cmb_Estados.Items.Clear();
             Cmb_Estados.Items.Add("Acre (AC)");
@@ -81,6 +80,8 @@ namespace CursoWindowsForms
             Tls_Principal.Items[2].ToolTipText = "Atualize um cliente já existente";
             Tls_Principal.Items[3].ToolTipText = "Apaga o cliente selecionado";
             Tls_Principal.Items[4].ToolTipText = "Limpa dados da tela de entrada de dados";
+
+            LimparFormulario();
         }
 
         private void Chk_TemPai_CheckedChanged(object sender, EventArgs e)
@@ -100,7 +101,9 @@ namespace CursoWindowsForms
                 C.ValidaClasse();
                 C.ValidaComplemento();
 
-                MessageBox.Show("Classe foi inicializada sem erros!", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string clienteJson = Cliente.SerializedClassUnit(C);
+
+                MessageBox.Show("Cliente sera adicionado! " + clienteJson, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException ex1)
             {
@@ -109,10 +112,8 @@ namespace CursoWindowsForms
             }
             catch (Exception ex1)
             {
-
                 MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void abrirToolStripButton_Click(object sender, EventArgs e)
@@ -152,7 +153,7 @@ namespace CursoWindowsForms
             Txt_Cidade.Text = "";
             Cmb_Estados.SelectedIndex = -1;
             Chk_TemPai.Checked = false;
-            Rdb_Masculino.Checked = true; ;
+            Rdb_Masculino.Checked = true;
         }
 
         Cliente.Unit LeituraFormulario()
