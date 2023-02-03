@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Web;
 
 namespace CursoWindowsFormsBiblioteca.Databases
 {
@@ -55,6 +56,34 @@ namespace CursoWindowsFormsBiblioteca.Databases
                 status = false;
                 mensagem = "Unclusão não permitida por que o identificador já existe! " + ex.Message;
             }
+        }
+
+        public string Buscar(string id)
+        {
+            status = true;
+            try
+            {
+                if (!(File.Exists(diretorio + "\\" + id + ".json")))
+                {
+                    status = false;
+                    mensagem = "Identificador não existente!";
+                }
+                else
+                {
+                    string conteudo = File.ReadAllText(diretorio + "\\" + id + ".json");
+                    status = true;
+                    mensagem = "Inclusão realizada com sucesso!";
+                    return conteudo;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Erro ao buscar o conteúdo do identificador: " + ex.Message;
+            }
+
+            return "";
         }
     }
 }

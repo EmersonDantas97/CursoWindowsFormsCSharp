@@ -112,6 +112,7 @@ namespace CursoWindowsForms
                     if (f.status)
                     {
                         MessageBox.Show("Ok: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimparFormulario();
                     }
                     else
                     {
@@ -135,7 +136,26 @@ namespace CursoWindowsForms
 
         private void abrirToolStripButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cliquei abrir");
+            if (Txt_Codigo.TextLength != 8 && !Information.IsNumeric(Txt_Codigo.Text))
+            {
+                MessageBox.Show("Código fora do padrão!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
+
+                if (f.status)
+                {
+                    string clienteJson = f.Buscar(Txt_Codigo.Text);
+                    Cliente.Unit c = new Cliente.Unit();
+                    c = Cliente.DesSerializedClassUnit(clienteJson);
+                    EscreveFormulario(c);
+                }
+                else
+                {
+                    MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void salvarToolStripButton_Click(object sender, EventArgs e)
@@ -182,26 +202,16 @@ namespace CursoWindowsForms
             c.NomePai = Txt_NomePai.Text;
 
             if (Chk_TemPai.Checked)
-            {
                 c.NaoTemPai = true;
-            }
             else
-            {
                 c.NaoTemPai = false;
-            }
 
             if (Rdb_Feminino.Checked)
-            {
                 c.Genero = 1;
-            }
             if (Rdb_Masculino.Checked)
-            {
                 c.Genero = 0;
-            }
             if (Rdb_Indefinido.Checked)
-            {
                 c.Genero = 2;
-            }
 
             c.CPF = Txt_CPF.Text;
             c.CEP = Txt_CEP.Text;
@@ -210,13 +220,9 @@ namespace CursoWindowsForms
             c.Bairro = Txt_Bairro.Text;
 
             if (Cmb_Estados.SelectedIndex < 0)
-            {
                 c.Estado = "";
-            }
             else
-            {
                 c.Estado = Cmb_Estados.Items[Cmb_Estados.SelectedIndex].ToString();
-            }
 
             c.Telefone = Txt_Telefone.Text;
             c.Profissao = Txt_Profissao.Text;
@@ -236,6 +242,58 @@ namespace CursoWindowsForms
             }
             return c;
         }
+
+        void EscreveFormulario(Cliente.Unit c)
+        {
+            Txt_Codigo.Text = c.Id;
+            Txt_NomeCliente.Text = c.Nome;
+            Txt_NomeMae.Text = c.NomeMae;
+
+            if (c.NaoTemPai == true)
+            {
+                Chk_TemPai.Checked = true;
+                Txt_NomePai.Text = c.NomePai;
+            }
+            else
+            {
+                Chk_TemPai.Checked = false;
+                Txt_NomePai.Text = "";
+            }
+
+            if (c.Genero == 0)
+                Rdb_Masculino.Checked = true;
+
+            if (c.Genero == 1)
+                Rdb_Feminino.Checked = true;
+
+            if (c.Genero == 2)
+                Rdb_Indefinido.Checked = true;
+
+            Txt_CPF.Text = c.CPF;
+            Txt_CEP.Text = c.CEP;
+            Txt_Logradouro.Text = c.Logradouro;
+            Txt_Cidade.Text = c.Cidade;
+            Txt_Bairro.Text = c.Bairro;
+            Txt_Telefone.Text = c.Telefone;
+            Txt_Profissao.Text = c.Profissao;
+            Txt_Complemento.Text = c.Complemento;
+
+            if (c.Estado == "")
+            {
+                Cmb_Estados.SelectedIndex = -1;
+            }
+            else
+            {
+                for (int i = 0; i < Cmb_Estados.Items.Count-1; i++)
+                {
+                    if (c.Estado == Cmb_Estados.Items[i].ToString())
+                        Cmb_Estados.SelectedIndex = i;
+                }
+            }
+
+            Txt_RendaFamiliar.Text = c.RendaFamiliar.ToString();
+        }
+
 
         private void Txt_CEP_Leave(object sender, EventArgs e)
         {
