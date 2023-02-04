@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations; // Para o comando Required funcione, precisamos adicionar referência. 
 using System.Text;
-using Newtonsoft.Json;
-using static CursoWindowsFormsBiblioteca.Classes.Cliente;
 
 namespace CursoWindowsFormsBiblioteca.Classes
 {
