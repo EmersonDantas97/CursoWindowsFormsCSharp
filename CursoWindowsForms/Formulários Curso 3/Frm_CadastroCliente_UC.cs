@@ -1,17 +1,11 @@
-﻿using System;
-using Microsoft.VisualBasic;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using CursoWindowsFormsBiblioteca;
 using CursoWindowsFormsBiblioteca.Classes;
 using CursoWindowsFormsBiblioteca.Databases;
+using Microsoft.VisualBasic;
+using System;
 using System.ComponentModel.DataAnnotations;
-using CursoWindowsFormsBiblioteca;
+using System.Windows.Forms;
+
 
 namespace CursoWindowsForms
 {
@@ -165,7 +159,39 @@ namespace CursoWindowsForms
 
         private void ApagatoolStripButton1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cliquei apagar");
+
+            if (Txt_Codigo.TextLength != 8 && !Information.IsNumeric(Txt_Codigo.Text))
+            {
+                MessageBox.Show("Código fora do padrão!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
+
+                string clienteJson = f.Buscar(Txt_Codigo.Text);
+                Cliente.Unit c = new Cliente.Unit();
+                c = Cliente.DesSerializedClassUnit(clienteJson);
+                EscreveFormulario(c);
+
+                Frm_Questao Db = new Frm_Questao("interrogation_mark", "Deseja apagar o cliente?");
+                Db.ShowDialog();
+
+                if (Db.DialogResult == DialogResult.Yes)
+                {
+                    f.Apagar(Txt_Codigo.Text);
+
+                    if (f.status)
+                    {
+                        MessageBox.Show("Ok: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimparFormulario();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
         }
 
         private void LimpartoolStrpButton1_Click(object sender, EventArgs e)
@@ -284,7 +310,7 @@ namespace CursoWindowsForms
             }
             else
             {
-                for (int i = 0; i < Cmb_Estados.Items.Count-1; i++)
+                for (int i = 0; i < Cmb_Estados.Items.Count - 1; i++)
                 {
                     if (c.Estado == Cmb_Estados.Items[i].ToString())
                         Cmb_Estados.SelectedIndex = i;

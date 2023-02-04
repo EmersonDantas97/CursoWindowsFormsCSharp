@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Web;
+using Newtonsoft.Json;
 
 namespace CursoWindowsFormsBiblioteca.Databases
 {
@@ -85,5 +85,32 @@ namespace CursoWindowsFormsBiblioteca.Databases
 
             return "";
         }
+
+        public void Apagar(string id)
+        {
+            status = true;
+            try
+            {
+                if (!(File.Exists(diretorio + "\\" + id + ".json")))
+                {
+                    status = false;
+                    mensagem = "Identificador não existente!";
+                }
+                else
+                {
+                    File.Delete(diretorio + "\\" + id + ".json");
+                }
+
+                mensagem = "Exclusão realizada com sucesso!";
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Erro ao buscar o conteúdo do identificador: " + ex.Message;
+            }
+
+        }
+
     }
 }
+
