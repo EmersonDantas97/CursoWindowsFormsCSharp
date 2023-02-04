@@ -154,7 +154,50 @@ namespace CursoWindowsForms
 
         private void salvarToolStripButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cliquei salvar");
+            if (Txt_Codigo.TextLength != 8 && !Information.IsNumeric(Txt_Codigo.Text))
+            {
+                MessageBox.Show("Código fora do padrão!","", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    Cliente.Unit C = new Cliente.Unit();
+                    C = LeituraFormulario();
+                    C.ValidaClasse();
+                    C.ValidaComplemento();
+
+                    string clienteJson = Cliente.SerializedClassUnit(C);
+
+                    Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
+
+                    if (f.status)
+                    {
+                        f.Alterar(C.Id, clienteJson);
+                        if (f.status)
+                        {
+                            MessageBox.Show("Ok: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimparFormulario();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (ValidationException ex1)
+                {
+                    MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex1)
+                {
+                    MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void ApagatoolStripButton1_Click(object sender, EventArgs e)
@@ -193,12 +236,10 @@ namespace CursoWindowsForms
             }
 
         }
-
         private void LimpartoolStrpButton1_Click(object sender, EventArgs e)
         {
             LimparFormulario();
         }
-
         private void LimparFormulario()
         {
             Txt_Codigo.Text = "";
@@ -218,7 +259,6 @@ namespace CursoWindowsForms
             Chk_TemPai.Checked = false;
             Rdb_Masculino.Checked = true;
         }
-
         Cliente.Unit LeituraFormulario()
         {
             Cliente.Unit c = new Cliente.Unit();
@@ -268,7 +308,6 @@ namespace CursoWindowsForms
             }
             return c;
         }
-
         void EscreveFormulario(Cliente.Unit c)
         {
             Txt_Codigo.Text = c.Id;

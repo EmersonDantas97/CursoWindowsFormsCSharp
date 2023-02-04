@@ -57,6 +57,31 @@ namespace CursoWindowsFormsBiblioteca.Databases
                 mensagem = "Unclusão não permitida por que o identificador já existe! " + ex.Message;
             }
         }
+        public void Alterar(string id, string jsonunit)
+        {
+            status = true;
+            try
+            {
+                if (!File.Exists(diretorio + "\\" + id + ".json"))
+                {
+                    status = false;
+                    mensagem = "Alteração não permitida por que o identificador não existe!";
+                }
+                else
+                {
+                    File.Delete(diretorio + "\\" + id + ".json");
+
+                    File.WriteAllText(diretorio + "\\" + id + ".json", jsonunit);
+                    status = true;
+                    mensagem = "Inclusão realizada com sucesso!";
+                }
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Unclusão não permitida por que o identificador já existe! " + ex.Message;
+            }
+        }
 
         public string Buscar(string id)
         {

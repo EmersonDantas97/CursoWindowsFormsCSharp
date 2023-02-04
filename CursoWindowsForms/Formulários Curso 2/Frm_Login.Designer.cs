@@ -63,6 +63,7 @@
             this.Txt_Login.Name = "Txt_Login";
             this.Txt_Login.Size = new System.Drawing.Size(151, 20);
             this.Txt_Login.TabIndex = 2;
+            this.Txt_Login.Text = "Emerson";
             // 
             // Lbl_Senha
             // 
@@ -80,6 +81,7 @@
             this.Txt_Password.PasswordChar = '*';
             this.Txt_Password.Size = new System.Drawing.Size(151, 20);
             this.Txt_Password.TabIndex = 4;
+            this.Txt_Password.Text = "curso";
             // 
             // Btn_Ok
             // 
