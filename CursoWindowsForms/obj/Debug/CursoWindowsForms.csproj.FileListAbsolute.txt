@@ -58,3 +58,4 @@ D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindow
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_CadastroCliente_UC.resources
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\bin\Debug\Newtonsoft.Json.dll
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\bin\Debug\Newtonsoft.Json.xml
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_Busca.resources

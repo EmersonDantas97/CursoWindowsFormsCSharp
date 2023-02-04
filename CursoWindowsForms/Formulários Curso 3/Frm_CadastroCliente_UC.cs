@@ -3,6 +3,7 @@ using CursoWindowsFormsBiblioteca.Classes;
 using CursoWindowsFormsBiblioteca.Databases;
 using Microsoft.VisualBasic;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Windows.Forms;
 
@@ -75,6 +76,10 @@ namespace CursoWindowsForms
             Tls_Principal.Items[2].ToolTipText = "Atualize um cliente já existente";
             Tls_Principal.Items[3].ToolTipText = "Apaga o cliente selecionado";
             Tls_Principal.Items[4].ToolTipText = "Limpa dados da tela de entrada de dados";
+
+            Btn_Buscar.Text = "Buscar";
+
+
 
             LimparFormulario();
         }
@@ -154,7 +159,50 @@ namespace CursoWindowsForms
 
         private void salvarToolStripButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cliquei salvar");
+            if (Txt_Codigo.TextLength != 8 && !Information.IsNumeric(Txt_Codigo.Text))
+            {
+                MessageBox.Show("Código fora do padrão!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    Cliente.Unit C = new Cliente.Unit();
+                    C = LeituraFormulario();
+                    C.ValidaClasse();
+                    C.ValidaComplemento();
+
+                    string clienteJson = Cliente.SerializedClassUnit(C);
+
+                    Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
+
+                    if (f.status)
+                    {
+                        f.Alterar(C.Id, clienteJson);
+                        if (f.status)
+                        {
+                            MessageBox.Show("Ok: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimparFormulario();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (ValidationException ex1)
+                {
+                    MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex1)
+                {
+                    MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void ApagatoolStripButton1_Click(object sender, EventArgs e)
@@ -193,12 +241,10 @@ namespace CursoWindowsForms
             }
 
         }
-
         private void LimpartoolStrpButton1_Click(object sender, EventArgs e)
         {
             LimparFormulario();
         }
-
         private void LimparFormulario()
         {
             Txt_Codigo.Text = "";
@@ -218,7 +264,6 @@ namespace CursoWindowsForms
             Chk_TemPai.Checked = false;
             Rdb_Masculino.Checked = true;
         }
-
         Cliente.Unit LeituraFormulario()
         {
             Cliente.Unit c = new Cliente.Unit();
@@ -268,7 +313,6 @@ namespace CursoWindowsForms
             }
             return c;
         }
-
         void EscreveFormulario(Cliente.Unit c)
         {
             Txt_Codigo.Text = c.Id;
@@ -347,6 +391,42 @@ namespace CursoWindowsForms
                     }
                 }
             }
+        }
+
+        private void Btn_Buscar_Click(object sender, EventArgs e)
+        {
+            Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
+
+            if (f.status)
+            {
+                List<string> Lista = new List<string>();
+                Lista = f.BuscarTodos();
+
+                // Fazendo validação, pois pode dar erro
+                if (f.status)
+                {
+                    List<List<string>> ListaBusca = new List<List<string>>();
+
+                    foreach (var dds in Lista)
+                    {
+                        Cliente.Unit c = Cliente.DesSerializedClassUnit(dds);
+                        ListaBusca.Add(new List<string> { c.Id, c.Nome });
+                    }
+                    Frm_Busca F = new Frm_Busca(ListaBusca);
+                    F.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Erro: " + f.mensagem, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
