@@ -76,6 +76,10 @@ namespace CursoWindowsForms
             Tls_Principal.Items[3].ToolTipText = "Apaga o cliente selecionado";
             Tls_Principal.Items[4].ToolTipText = "Limpa dados da tela de entrada de dados";
 
+            Btn_Buscar.Text = "Buscar";
+
+
+
             LimparFormulario();
         }
 
@@ -386,6 +390,12 @@ namespace CursoWindowsForms
                     }
                 }
             }
+        }
+
+        private void Btn_Buscar_Click(object sender, EventArgs e)
+        {
+            Frm_Busca F = new Frm_Busca();
+            F.ShowDialog();
         }
     }
 }

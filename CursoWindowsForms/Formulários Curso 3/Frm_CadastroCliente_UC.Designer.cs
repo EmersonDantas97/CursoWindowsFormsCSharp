@@ -71,6 +71,7 @@
             this.salvarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ApagatoolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.LimpartoolStrpButton1 = new System.Windows.Forms.ToolStripButton();
+            this.Btn_Buscar = new System.Windows.Forms.Button();
             this.Grp_Outros.SuspendLayout();
             this.Grp_Endereco.SuspendLayout();
             this.Grp_DadosPessoais.SuspendLayout();
@@ -413,10 +414,11 @@
             // 
             // Grp_Codigo
             // 
+            this.Grp_Codigo.Controls.Add(this.Btn_Buscar);
             this.Grp_Codigo.Controls.Add(this.Txt_Codigo);
             this.Grp_Codigo.Location = new System.Drawing.Point(3, 28);
             this.Grp_Codigo.Name = "Grp_Codigo";
-            this.Grp_Codigo.Size = new System.Drawing.Size(227, 53);
+            this.Grp_Codigo.Size = new System.Drawing.Size(343, 53);
             this.Grp_Codigo.TabIndex = 56;
             this.Grp_Codigo.TabStop = false;
             this.Grp_Codigo.Text = "groupBox1";
@@ -492,6 +494,16 @@
             this.LimpartoolStrpButton1.Text = "toolStripButton1";
             this.LimpartoolStrpButton1.Click += new System.EventHandler(this.LimpartoolStrpButton1_Click);
             // 
+            // Btn_Buscar
+            // 
+            this.Btn_Buscar.Location = new System.Drawing.Point(233, 19);
+            this.Btn_Buscar.Name = "Btn_Buscar";
+            this.Btn_Buscar.Size = new System.Drawing.Size(101, 20);
+            this.Btn_Buscar.TabIndex = 1;
+            this.Btn_Buscar.Text = "button1";
+            this.Btn_Buscar.UseVisualStyleBackColor = true;
+            this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
+            // 
             // Frm_CadastroCliente_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,5 +576,6 @@
         private System.Windows.Forms.ToolStripButton salvarToolStripButton;
         private System.Windows.Forms.ToolStripButton ApagatoolStripButton1;
         private System.Windows.Forms.ToolStripButton LimpartoolStrpButton1;
+        private System.Windows.Forms.Button Btn_Buscar;
     }
 }
