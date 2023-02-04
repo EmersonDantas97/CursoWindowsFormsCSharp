@@ -32,7 +32,7 @@
             this.Tls_Principal = new System.Windows.Forms.ToolStrip();
             this.salvarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ApagatoolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.Lst_Busca = new System.Windows.Forms.ListBox();
             this.Tls_Principal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,20 +66,20 @@
             this.ApagatoolStripButton1.Text = "toolStripButton1";
             this.ApagatoolStripButton1.Click += new System.EventHandler(this.ApagatoolStripButton1_Click);
             // 
-            // listBox1
+            // Lst_Busca
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 28);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(305, 238);
-            this.listBox1.TabIndex = 62;
+            this.Lst_Busca.FormattingEnabled = true;
+            this.Lst_Busca.Location = new System.Drawing.Point(12, 28);
+            this.Lst_Busca.Name = "Lst_Busca";
+            this.Lst_Busca.Size = new System.Drawing.Size(305, 238);
+            this.Lst_Busca.TabIndex = 62;
             // 
             // Frm_Busca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(329, 281);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.Lst_Busca);
             this.Controls.Add(this.Tls_Principal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -88,7 +88,6 @@
             this.Name = "Frm_Busca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Busca";
-            this.Load += new System.EventHandler(this.Frm_Busca_Load);
             this.Tls_Principal.ResumeLayout(false);
             this.Tls_Principal.PerformLayout();
             this.ResumeLayout(false);
@@ -101,6 +100,6 @@
         private System.Windows.Forms.ToolStrip Tls_Principal;
         private System.Windows.Forms.ToolStripButton salvarToolStripButton;
         private System.Windows.Forms.ToolStripButton ApagatoolStripButton1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox Lst_Busca;
     }
 }

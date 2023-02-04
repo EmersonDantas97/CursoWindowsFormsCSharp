@@ -401,8 +401,25 @@ namespace CursoWindowsForms
             {
                 List<string> Lista = new List<string>();
                 Lista = f.BuscarTodos();
-                Frm_Busca F = new Frm_Busca();
-                F.ShowDialog();
+
+                // Fazendo validação, pois pode dar erro
+                if (f.status)
+                {
+                    List<List<string>> ListaBusca = new List<List<string>>();
+
+                    foreach (var dds in Lista)
+                    {
+                        Cliente.Unit c = Cliente.DesSerializedClassUnit(dds);
+                        ListaBusca.Add(new List<string> { c.Id, c.Nome });
+                    }
+                    Frm_Busca F = new Frm_Busca(ListaBusca);
+                    F.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Erro: " + f.mensagem, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
 
             }
             else
