@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace CursoWindowsFormsBiblioteca.Databases
 {
@@ -109,6 +109,27 @@ namespace CursoWindowsFormsBiblioteca.Databases
             }
 
             return "";
+        }
+
+        public List<string> BuscarTodos()
+        {
+            status = true;
+            List<string> List = new List<string>();
+
+            try
+            {
+                var Arquivos = Directory.GetFiles(diretorio, "*.json");
+                foreach (var arquivo in Arquivos)
+                {
+                    List.Add(arquivo);
+                }
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Erro ao buscar o conteúdo do identificador: " + ex.Message;
+            }
+            return List;
         }
 
         public void Apagar(string id)

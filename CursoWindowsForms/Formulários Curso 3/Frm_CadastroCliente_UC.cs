@@ -3,6 +3,7 @@ using CursoWindowsFormsBiblioteca.Classes;
 using CursoWindowsFormsBiblioteca.Databases;
 using Microsoft.VisualBasic;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Windows.Forms;
 
@@ -160,7 +161,7 @@ namespace CursoWindowsForms
         {
             if (Txt_Codigo.TextLength != 8 && !Information.IsNumeric(Txt_Codigo.Text))
             {
-                MessageBox.Show("Código fora do padrão!","", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Código fora do padrão!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -394,8 +395,21 @@ namespace CursoWindowsForms
 
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
-            Frm_Busca F = new Frm_Busca();
-            F.ShowDialog();
+            Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
+
+            if (f.status)
+            {
+                List<string> Lista = new List<string>();
+                Lista = f.BuscarTodos();
+                Frm_Busca F = new Frm_Busca();
+                F.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
