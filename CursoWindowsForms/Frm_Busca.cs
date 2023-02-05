@@ -8,6 +8,8 @@ namespace CursoWindowsForms
     {
         List<List<string>> _ListaBusca = new List<List<string>>();
 
+        public string IdSelecionado;
+
         public Frm_Busca(List<List<string>> ListaBusca)
         {
             _ListaBusca = ListaBusca;
@@ -26,7 +28,7 @@ namespace CursoWindowsForms
         {
             Lst_Busca.Items.Clear();
 
-            for (int i = 0; i < _ListaBusca.Count - 1; i++)
+            for (int i = 0; i <= _ListaBusca.Count - 1; i++)
             {
                 Lst_Busca.Items.Add(_ListaBusca[i][1]);
             }
@@ -34,7 +36,14 @@ namespace CursoWindowsForms
 
         private void ApagatoolStripButton1_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void salvarToolStripButton_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            IdSelecionado = _ListaBusca[Lst_Busca.SelectedIndex][0];
         }
     }
 }
