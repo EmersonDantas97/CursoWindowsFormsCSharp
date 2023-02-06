@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace CursoWindowsForms
@@ -22,6 +23,8 @@ namespace CursoWindowsForms
             Tls_Principal.Items[1].ToolTipText = "Fechar";
 
             PreencherLista();
+
+            Lst_Busca.Sorted = true;
         }
 
         private void PreencherLista()
@@ -30,7 +33,11 @@ namespace CursoWindowsForms
 
             for (int i = 0; i <= _ListaBusca.Count - 1; i++)
             {
-                Lst_Busca.Items.Add(_ListaBusca[i][1]);
+                ItemBox X = new ItemBox();
+                X.Id = _ListaBusca[i][0];
+                X.Nome = _ListaBusca[i][1];
+
+                Lst_Busca.Items.Add(X);
             }
         }
 
@@ -43,7 +50,23 @@ namespace CursoWindowsForms
         private void salvarToolStripButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            IdSelecionado = _ListaBusca[Lst_Busca.SelectedIndex][0];
+
+            ItemBox itemSelecionado = (ItemBox)Lst_Busca.Items[Lst_Busca.SelectedIndex];
+
+            IdSelecionado = itemSelecionado.Id;
+
+            this.Close();
+        }
+
+        class ItemBox
+        {
+            public string Id { get; set; }
+            public string Nome { get; set; }
+
+            public override string ToString()
+            {
+                return Nome.ToString();
+            }
         }
     }
 }
