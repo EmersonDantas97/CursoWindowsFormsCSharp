@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CursoWindowsFormsBiblioteca.Databases;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations; // Para o comando Required funcione, precisamos adicionar referência. 
@@ -84,7 +85,58 @@ namespace CursoWindowsFormsBiblioteca.Classes
                     throw new ValidationException(sbrErrors.ToString());
                 }
             }
+            public void IncluirFichario(string Conexao)
+            {
+                string clienteJson = Cliente.SerializedClassUnit(this);
+                Fichario F = new Fichario(Conexao);
+                if (F.status)
+                {
+                    F.Incluir(this.Id, clienteJson);
+                    if (!(F.status))
+                    {
+                        throw new Exception(F.mensagem);
+                    }
+                }
+                else
+                {
+                    throw new Exception(F.mensagem);
+                }
+            }
 
+            public void AlterarFichario(string conexao)
+            {
+                string clienteJson = Cliente.SerializedClassUnit(this);
+                Fichario F = new Fichario(conexao);
+                if (F.status)
+                {
+                    F.Alterar(this.Id, clienteJson);
+                    if (!(F.status))
+                    {
+                        throw new Exception(F.mensagem);
+                    }
+                }
+                else
+                {
+                    throw new Exception(F.mensagem);
+                }
+            }
+
+            public void ApagarFichario(string conexao)
+            {
+                Fichario F = new Fichario(conexao);
+                if (F.status)
+                {
+                    F.Apagar(this.Id);
+                    if (!(F.status))
+                    {
+                        throw new Exception(F.mensagem);
+                    }
+                }
+                else
+                {
+                    throw new Exception(F.mensagem);
+                }
+            }
             public void ValidaComplemento()
             {
                 if (this.NomePai == this.NomeMae)
@@ -108,8 +160,23 @@ namespace CursoWindowsFormsBiblioteca.Classes
                 }
             }
 
+            public Unit BuscarFichario(string id, string conexao)
+            {
+                Fichario f = new Fichario(conexao);
 
+                if (f.status)
+                {
+                    string clienteJson = f.Buscar(id);
+                    return Cliente.DesSerializedClassUnit(clienteJson);
+                }
+                else
+                {
+                    throw new Exception("CPF inválido!");
+                }
+
+            }
         }
+
 
         public class List
         {
