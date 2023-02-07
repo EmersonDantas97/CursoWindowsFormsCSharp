@@ -100,68 +100,52 @@ namespace CursoWindowsForms
                 C = LeituraFormulario();
                 C.ValidaClasse();
                 C.ValidaComplemento();
-
-                string clienteJson = Cliente.SerializedClassUnit(C);
-
-                Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
-
-                if (f.status)
-                {
-                    f.Incluir(C.Id, clienteJson);
-                    if (f.status)
-                    {
-                        MessageBox.Show("Ok: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimparFormulario();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                C.IncluirFichario("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
+                MessageBox.Show("OK: Indentificador incluido com sucesso", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (ValidationException ex1)
+            catch (ValidationException Ex)
             {
-                MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex1)
+            catch (Exception Ex)
             {
-                MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void abrirToolStripButton_Click(object sender, EventArgs e)
         {
-            if (Txt_Codigo.TextLength != 8 && !Information.IsNumeric(Txt_Codigo.Text))
+            if (Txt_Codigo.Text == "")
             {
-                MessageBox.Show("Código fora do padrão!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Código do Cliente vazio.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
-
-                if (f.status)
+                try
                 {
-                    string clienteJson = f.Buscar(Txt_Codigo.Text);
-                    Cliente.Unit c = new Cliente.Unit();
-                    c = Cliente.DesSerializedClassUnit(clienteJson);
-                    EscreveFormulario(c);
+                    Cliente.Unit C = new Cliente.Unit();
+                    C = C.BuscarFichario(Txt_Codigo.Text, "C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
+                    if (C == null)
+                    {
+                        MessageBox.Show("Identificador não encontrado.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        EscreveFormulario(C);
+                    }
                 }
-                else
+                catch (Exception Ex)
                 {
-                    MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void salvarToolStripButton_Click(object sender, EventArgs e)
         {
-            if (Txt_Codigo.TextLength != 8 && !Information.IsNumeric(Txt_Codigo.Text))
+            if (Txt_Codigo.Text == "")
             {
-                MessageBox.Show("Código fora do padrão!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Código do Cliente vazio.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -171,75 +155,54 @@ namespace CursoWindowsForms
                     C = LeituraFormulario();
                     C.ValidaClasse();
                     C.ValidaComplemento();
-
-                    string clienteJson = Cliente.SerializedClassUnit(C);
-
-                    Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
-
-                    if (f.status)
-                    {
-                        f.Alterar(C.Id, clienteJson);
-                        if (f.status)
-                        {
-                            MessageBox.Show("Ok: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LimparFormulario();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    C.AlterarFichario("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
+                    MessageBox.Show("OK: Indentificador alterado com sucesso", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (ValidationException ex1)
+                catch (ValidationException Ex)
                 {
-                    MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (Exception ex1)
+                catch (Exception Ex)
                 {
-                    MessageBox.Show(ex1.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void ApagatoolStripButton1_Click(object sender, EventArgs e)
         {
-
-            if (Txt_Codigo.TextLength != 8 && !Information.IsNumeric(Txt_Codigo.Text))
+                if (Txt_Codigo.Text == "")
+    {
+        MessageBox.Show("Código do Cliente vazio.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+    else
+    {
+        try
+        {
+            Cliente.Unit C = new Cliente.Unit();
+            C = C.BuscarFichario(Txt_Codigo.Text, "C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
+            if (C == null)
             {
-                MessageBox.Show("Código fora do padrão!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Identificador não encontrado.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
-
-                string clienteJson = f.Buscar(Txt_Codigo.Text);
-                Cliente.Unit c = new Cliente.Unit();
-                c = Cliente.DesSerializedClassUnit(clienteJson);
-                EscreveFormulario(c);
-
-                Frm_Questao Db = new Frm_Questao("interrogation_mark", "Deseja apagar o cliente?");
+                EscreveFormulario(C);
+                Frm_Questao Db = new Frm_Questao("icons8_question_mark_961", "Você quer excluir o cliente?");
                 Db.ShowDialog();
-
                 if (Db.DialogResult == DialogResult.Yes)
                 {
-                    f.Apagar(Txt_Codigo.Text);
-
-                    if (f.status)
-                    {
-                        MessageBox.Show("Ok: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimparFormulario();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro: " + f.mensagem, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    C.ApagarFichario("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
+                    MessageBox.Show("OK: Indentificador apagado com sucesso", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimparFormulario();
                 }
             }
-
+        }
+        catch (Exception Ex)
+        {
+            MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
         }
         private void LimpartoolStrpButton1_Click(object sender, EventArgs e)
         {
