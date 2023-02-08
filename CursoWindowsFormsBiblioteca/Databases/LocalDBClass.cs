@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace CursoWindowsFormsBiblioteca.Databases
@@ -23,6 +24,24 @@ namespace CursoWindowsFormsBiblioteca.Databases
 
         }
 
+        public DataTable SQLQuery(string SQL)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                var myCommand = new SqlCommand(SQL, connDB);
+                myCommand.CommandTimeout = 0;
+                var myReader = myCommand.ExecuteReader();
+                dt.Load(myReader);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return dt;
+        }
+
         public string SQLComand(string SQL)
         {
             try
@@ -36,6 +55,11 @@ namespace CursoWindowsFormsBiblioteca.Databases
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public void Fechar()
+        {
+            connDB.Close();
         }
     }
 }
