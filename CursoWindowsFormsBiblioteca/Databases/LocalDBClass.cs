@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 
 namespace CursoWindowsFormsBiblioteca.Databases
 {
@@ -9,10 +10,32 @@ namespace CursoWindowsFormsBiblioteca.Databases
 
         public LocalDBClass()
         {
-            stringConn = ""; 
-            connDB = new SqlConnection(stringConn); 
-            connDB.Open();
+            try
+            {
+                stringConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Databases\\Fichario.mdf;Integrated Security=True";
+                connDB = new SqlConnection(stringConn);
+                connDB.Open();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
 
+        public string SQLComand(string SQL)
+        {
+            try
+            {
+                var myCommand = new SqlCommand(SQL, connDB);
+                myCommand.CommandTimeout = 0;
+                var myReader = myCommand.ExecuteReader();
+                return "";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
