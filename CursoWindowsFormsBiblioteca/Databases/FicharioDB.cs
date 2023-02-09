@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace CursoWindowsFormsBiblioteca.Databases
 {
@@ -41,7 +43,127 @@ namespace CursoWindowsFormsBiblioteca.Databases
             catch (Exception ex)
             {
                 status = false;
-                mensagem = "Unclusão não permitida por que o identificador já existe! " + ex.Message;
+                mensagem = "Inclusão não permitida por que o identificador já existe! " + ex.Message;
+            }
+        }
+        public string Buscar(string id)
+        {
+            status = true;
+            try
+            {
+                var SQL = "SELECT ID, JSON FROM " + Tabela + " WHERE id = '" + id + "'";
+                var dt = db.SQLQuery(SQL);
+
+                if (dt.Rows.Count > 0)
+                {
+                    string conteudo = dt.Rows[0]["JSON"].ToString();
+                    status = true;
+                    mensagem = "Identificador encontrado!";
+                    return conteudo;
+                }
+                else
+                {
+                    status = false;
+                    mensagem = "Identificador não existe!";
+                }
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Erro ao buscar o conteúdo do identificador: " + ex.Message;
+            }
+
+            return "";
+        }
+
+        public List<string> BuscarTodos()
+        {
+            status = true;
+            List<string> List = new List<string>();
+
+            try
+            {
+                var SQL = "SELECT ID, JSON FROM " + Tabela;
+                var dt = db.SQLQuery(SQL);
+
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i <= dt.Rows.Count - 1; i++)
+                    {
+                        string conteudo = dt.Rows[i]["JSON"].ToString();
+                        List.Add(conteudo);
+                    }
+                    return List;
+                }
+                else
+                {
+                    status = false;
+                    mensagem = "Não existe informações na base de dados!";
+                }
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Erro ao buscar informações: " + ex.Message;
+            }
+            return List;
+        }
+
+        public void Apagar(string id)
+        {
+            status = true;
+            try
+            {
+                var SQL = "SELECT ID, JSON FROM " + Tabela + " WHERE id = '" + id + "'";
+                var dt = db.SQLQuery(SQL);
+
+                if (dt.Rows.Count > 0)
+                {
+                    SQL = "DELETE FROM " + Tabela + " WHERE ID = '" + id + "'";
+                    db.SQLComand(SQL);
+
+                    status = true;
+                    mensagem = "Cliente pagado!";
+                }
+                else
+                {
+                    status = false;
+                    mensagem = "Identificador não existe!";
+                }
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Erro ao buscar o conteúdo do identificador: " + ex.Message;
+            }
+        }
+
+        public void Alterar(string id, string jsonunit)
+        {
+            status = true;
+            try
+            {
+                var SQL = "SELECT ID, JSON FROM " + Tabela + " WHERE id = '" + id + "'";
+                var dt = db.SQLQuery(SQL);
+
+                if (dt.Rows.Count > 0)
+                {
+                    SQL = "UPDATE " + Tabela + " SET JSON = '" + jsonunit + "'WHERE ID = '" + id + "'";
+                    db.SQLComand(SQL);
+
+                    status = true;
+                    mensagem = "Cliente alterado!";
+                }
+                else
+                {
+                    status = false;
+                    mensagem = "Identificador não existe!";
+                }
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Inclusão não permitida por que o identificador já existe! " + ex.Message;
             }
         }
 

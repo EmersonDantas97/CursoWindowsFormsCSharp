@@ -85,10 +85,10 @@ namespace CursoWindowsFormsBiblioteca.Classes
                     throw new ValidationException(sbrErrors.ToString());
                 }
             }
-            public void IncluirFichario(string Conexao)
+            public void IncluirFicharioDB(string Conexao)
             {
                 string clienteJson = Cliente.SerializedClassUnit(this);
-                Fichario F = new Fichario(Conexao);
+                FicharioDB F = new FicharioDB(Conexao);
                 if (F.status)
                 {
                     F.Incluir(this.Id, clienteJson);
@@ -103,10 +103,10 @@ namespace CursoWindowsFormsBiblioteca.Classes
                 }
             }
 
-            public void AlterarFichario(string conexao)
+            public void AlterarFicharioDB(string conexao)
             {
                 string clienteJson = Cliente.SerializedClassUnit(this);
-                Fichario F = new Fichario(conexao);
+                FicharioDB F = new FicharioDB(conexao);
                 if (F.status)
                 {
                     F.Alterar(this.Id, clienteJson);
@@ -121,9 +121,9 @@ namespace CursoWindowsFormsBiblioteca.Classes
                 }
             }
 
-            public void ApagarFichario(string conexao)
+            public void ApagarFicharioDB(string conexao)
             {
-                Fichario F = new Fichario(conexao);
+                FicharioDB F = new FicharioDB(conexao);
                 if (F.status)
                 {
                     F.Apagar(this.Id);
@@ -160,9 +160,9 @@ namespace CursoWindowsFormsBiblioteca.Classes
                 }
             }
 
-            public Unit BuscarFichario(string id, string conexao)
+            public Unit BuscarFicharioDB(string id, string conexao)
             {
-                Fichario f = new Fichario(conexao);
+                FicharioDB f = new FicharioDB(conexao);
 
                 if (f.status)
                 {
