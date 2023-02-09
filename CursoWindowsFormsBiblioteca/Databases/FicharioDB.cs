@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace CursoWindowsFormsBiblioteca.Databases
 {
@@ -74,6 +76,38 @@ namespace CursoWindowsFormsBiblioteca.Databases
             return "";
         }
 
+        public List<string> BuscarTodos()
+        {
+            status = true;
+            List<string> List = new List<string>();
+
+            try
+            {
+                var SQL = "SELECT ID, JSON FROM " + Tabela;
+                var dt = db.SQLQuery(SQL);
+
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i <= dt.Rows.Count - 1; i++)
+                    {
+                        string conteudo = dt.Rows[i]["JSON"].ToString();
+                        List.Add(conteudo);
+                    }
+                    return List;
+                }
+                else
+                {
+                    status = false;
+                    mensagem = "Não existe informações na base de dados!";
+                }
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Erro ao buscar informações: " + ex.Message;
+            }
+            return List;
+        }
 
     }
 }
