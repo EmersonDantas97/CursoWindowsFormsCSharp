@@ -41,9 +41,39 @@ namespace CursoWindowsFormsBiblioteca.Databases
             catch (Exception ex)
             {
                 status = false;
-                mensagem = "Unclusão não permitida por que o identificador já existe! " + ex.Message;
+                mensagem = "Inclusão não permitida por que o identificador já existe! " + ex.Message;
             }
         }
+        public string Buscar(string id)
+        {
+            status = true;
+            try
+            {
+                var SQL = "SELECT ID, JSON FROM " + Tabela + " WHERE id = '" + id + "'";
+                var dt = db.SQLQuery(SQL);
+
+                if (dt.Rows.Count > 0)
+                {
+                    string conteudo = dt.Rows[0]["JSON"].ToString();
+                    status = true;
+                    mensagem = "Identificador encontrado!";
+                    return conteudo;
+                }
+                else
+                {
+                    status = false;
+                    mensagem = "Identificador não existe!";
+                }
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Erro ao buscar o conteúdo do identificador: " + ex.Message;
+            }
+
+            return "";
+        }
+
 
     }
 }
