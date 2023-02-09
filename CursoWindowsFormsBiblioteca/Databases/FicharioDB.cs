@@ -109,5 +109,33 @@ namespace CursoWindowsFormsBiblioteca.Databases
             return List;
         }
 
+        public void Apagar(string id)
+        {
+            status = true;
+            try
+            {
+                var SQL = "SELECT ID, JSON FROM " + Tabela + " WHERE id = '" + id + "'";
+                var dt = db.SQLQuery(SQL);
+
+                if (dt.Rows.Count > 0)
+                {
+                    SQL = "DELETE FROM " + Tabela + " WHERE ID = '" + id + "'";
+                    db.SQLComand(SQL);
+
+                    status = true;
+                    mensagem = "Cliente pagado!";
+                }
+                else
+                {
+                    status = false;
+                    mensagem = "Identificador não existe!";
+                }
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Erro ao buscar o conteúdo do identificador: " + ex.Message;
+            }
+        }
     }
 }
