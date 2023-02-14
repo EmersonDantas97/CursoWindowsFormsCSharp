@@ -1,19 +1,23 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace CursoWindowsFormsBiblioteca.Databases
 {
     public class LocalDBClass
     {
-        public string stringConn { get; set; }
-        public SqlConnection connDB { get; set; }
+        public string stringConn;
+        public SqlConnection connDB;
 
         public LocalDBClass()
         {
             try
             {
-                stringConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Databases\\Fichario.mdf;Integrated Security=True";
+                stringConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\EMERSON\\Programacao\\CursoWindowsForms\\CursoWindowsFormsBiblioteca\\Databases\\Fichario.mdf;Integrated Security=True";
                 connDB = new SqlConnection(stringConn);
                 connDB.Open();
             }
@@ -27,7 +31,6 @@ namespace CursoWindowsFormsBiblioteca.Databases
         public DataTable SQLQuery(string SQL)
         {
             DataTable dt = new DataTable();
-
             try
             {
                 var myCommand = new SqlCommand(SQL, connDB);
@@ -42,7 +45,7 @@ namespace CursoWindowsFormsBiblioteca.Databases
             return dt;
         }
 
-        public string SQLComand(string SQL)
+        public string SQLCommand (string SQL)
         {
             try
             {
@@ -57,9 +60,10 @@ namespace CursoWindowsFormsBiblioteca.Databases
             }
         }
 
-        public void Fechar()
+        public void Close()
         {
             connDB.Close();
         }
+
     }
 }

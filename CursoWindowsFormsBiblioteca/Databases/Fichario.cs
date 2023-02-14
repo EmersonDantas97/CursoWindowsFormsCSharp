@@ -1,113 +1,87 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace CursoWindowsFormsBiblioteca.Databases
 {
     public class Fichario
     {
+
         public string diretorio;
         public string mensagem;
         public bool status;
 
-        public Fichario(string Diretorio)
+        public Fichario (string Diretorio)
         {
             status = true;
-
             try
             {
-                if (!File.Exists(Diretorio))
+                if (!(Directory.Exists(Diretorio)))
                 {
                     Directory.CreateDirectory(Diretorio);
                 }
-
                 diretorio = Diretorio;
-
-                mensagem = "Conexao criada com sucesso!";
-
+                mensagem = "Conexão com o Fichario criada com sucesso.";
             }
-            catch (Exception ex)
+            catch( Exception ex)
             {
                 status = false;
-                mensagem = "Conexao com erro! " + ex.Message;
-
+                mensagem = "Conexão com o Fichario com erro: " + ex.Message;
             }
+          
         }
 
-        public void Incluir(string id, string jsonunit)
+        public void Incluir(string Id, string jsonUnit)
         {
             status = true;
             try
             {
-                if (File.Exists(diretorio + "\\" + id + ".json"))
+                if (File.Exists(diretorio + "\\" + Id + ".json"))
                 {
                     status = false;
-                    mensagem = "Unclusão não permitida por que o identificador já existe!";
+                    mensagem = "Inclusão não permitida porque o identificador já existe: " + Id;
                 }
                 else
                 {
-                    File.WriteAllText(diretorio + "\\" + id + ".json", jsonunit);
+                    File.WriteAllText(diretorio + "\\" + Id + ".json", jsonUnit);
                     status = true;
-                    mensagem = "Inclusão realizada com sucesso!";
-                }
-            }
-            catch (Exception ex)
-            {
-                status = false;
-                mensagem = "Unclusão não permitida por que o identificador já existe! " + ex.Message;
-            }
-        }
-        public void Alterar(string id, string jsonunit)
-        {
-            status = true;
-            try
-            {
-                if (!File.Exists(diretorio + "\\" + id + ".json"))
-                {
-                    status = false;
-                    mensagem = "Alteração não permitida por que o identificador não existe!";
-                }
-                else
-                {
-                    File.Delete(diretorio + "\\" + id + ".json");
-
-                    File.WriteAllText(diretorio + "\\" + id + ".json", jsonunit);
-                    status = true;
-                    mensagem = "Inclusão realizada com sucesso!";
+                    mensagem = "Inclusão efetuada com sucesso. Identificador: " + Id;
                 }
             }
             catch (Exception ex)
             {
                 status = false;
-                mensagem = "Unclusão não permitida por que o identificador já existe! " + ex.Message;
-            }
+                mensagem = "Conexão com o Fichario com erro: " + ex.Message;
+            }       
+
         }
 
-        public string Buscar(string id)
+        public string Buscar(string Id)
         {
             status = true;
             try
             {
-                if (!(File.Exists(diretorio + "\\" + id + ".json")))
+                if (!(File.Exists(diretorio + "\\" + Id + ".json")))
                 {
                     status = false;
-                    mensagem = "Identificador não existente!";
+                    mensagem = "Identificador não existente: " + Id;
                 }
                 else
                 {
-                    string conteudo = File.ReadAllText(diretorio + "\\" + id + ".json");
+                    string conteudo = File.ReadAllText(diretorio + "\\" + Id + ".json");
                     status = true;
-                    mensagem = "Inclusão realizada com sucesso!";
+                    mensagem = "Inclusão efetuada com sucesso. Identificador: " + Id;
                     return conteudo;
                 }
-
             }
             catch (Exception ex)
             {
                 status = false;
                 mensagem = "Erro ao buscar o conteúdo do identificador: " + ex.Message;
             }
-
             return "";
         }
 
@@ -115,15 +89,15 @@ namespace CursoWindowsFormsBiblioteca.Databases
         {
             status = true;
             List<string> List = new List<string>();
-
             try
             {
                 var Arquivos = Directory.GetFiles(diretorio, "*.json");
-                foreach (var arquivo in Arquivos)
+                for (int i = 0; i <= Arquivos.Length - 1; i++)
                 {
-                    string conteudo = File.ReadAllText(arquivo);
+                    string conteudo = File.ReadAllText(Arquivos[i]);
                     List.Add(conteudo);
                 }
+                return List;
             }
             catch (Exception ex)
             {
@@ -133,31 +107,54 @@ namespace CursoWindowsFormsBiblioteca.Databases
             return List;
         }
 
-        public void Apagar(string id)
+        public void Apagar (string Id)
         {
             status = true;
             try
             {
-                if (!(File.Exists(diretorio + "\\" + id + ".json")))
+                if (!(File.Exists(diretorio + "\\" + Id + ".json")))
                 {
                     status = false;
-                    mensagem = "Identificador não existente!";
+                    mensagem = "Identificador não existente: " + Id;
                 }
                 else
                 {
-                    File.Delete(diretorio + "\\" + id + ".json");
+                    File.Delete(diretorio + "\\" + Id + ".json");
+                    status = true;
+                    mensagem = "Exclusão efetuada com sucesso. Identificador: " + Id;
                 }
-
-                mensagem = "Exclusão realizada com sucesso!";
             }
             catch (Exception ex)
             {
                 status = false;
                 mensagem = "Erro ao buscar o conteúdo do identificador: " + ex.Message;
             }
-
         }
 
+        public void Alterar(string Id, string jsonUnit)
+        {
+            status = true;
+            try
+            {
+                if (!(File.Exists(diretorio + "\\" + Id + ".json")))
+                {
+                    status = false;
+                    mensagem = "Alteração não permitida porque o identificador não existe: " + Id;
+                }
+                else
+                {
+                    File.Delete(diretorio + "\\" + Id + ".json");
+                    File.WriteAllText(diretorio + "\\" + Id + ".json", jsonUnit);
+                    status = true;
+                    mensagem = "Inclusão efetuada com sucesso. Identificador: " + Id;
+                }
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Conexão com o Fichario com erro: " + ex.Message;
+            }
+
+        }
     }
 }
-

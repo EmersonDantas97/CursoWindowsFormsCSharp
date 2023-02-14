@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +17,9 @@ namespace CursoWindowsForms
             InitializeComponent();
         }
 
-        private void btn_ModificaLabel_Click(object sender, EventArgs e)
+        private void Btn_ModificaLabel_Click(object sender, EventArgs e)
         {
-            lbl_Titulo.Text = txt_ConteudoLabel.Text;
+            lbl_Titulo.Text = Txt_ConteudoLabel.Text;
         }
     }
 }

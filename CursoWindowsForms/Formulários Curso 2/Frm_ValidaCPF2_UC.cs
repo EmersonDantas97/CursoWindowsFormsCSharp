@@ -1,13 +1,14 @@
-﻿using CursoWindowsFormsBiblioteca;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CursoWindowsFormsBiblioteca;
+
 
 namespace CursoWindowsForms
 {
@@ -29,39 +30,37 @@ namespace CursoWindowsForms
             vConteudo = Msk_CPF.Text;
             vConteudo = vConteudo.Replace(".", "").Replace("-", "");
             vConteudo = vConteudo.Trim();
-
             if (vConteudo == "")
             {
-                MessageBox.Show("Você deve digitar um CPF!", "Mensagem de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Você deve digitar um CPF", "Mensagem de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 if (vConteudo.Length != 11)
                 {
-                    MessageBox.Show("CPF deve ter 11 dígitos!", "Mensagem de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("CFP deve ter 11 dígitos", "Mensagem de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    Frm_Questao Db = new Frm_Questao("Frm_ValidaSenha", "Deseja pesquisar o CPF?");
+
+                    Frm_Questao Db = new Frm_Questao("Frm_ValidaCPF2","Tem certeza em validar o CPF?");
                     Db.ShowDialog();
-                    //if (MessageBox.Show("Você deseja realmente validar o CPF?", "Mensagem de validação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    
-                    if (Db.DialogResult == DialogResult.Yes)
+                    //if (MessageBox.Show("Você deseja realmente validar o CPF?", "Mensagem de Validação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                    if (Db.DialogResult == DialogResult.Yes)            
                     {
                         bool validaCPF = false;
                         validaCPF = Cls_Uteis.Valida(Msk_CPF.Text);
-
                         if (validaCPF == true)
                         {
-                            MessageBox.Show("CPF válido!", "Mensagem de validação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("CPF VÁLIDO", "Mensagem de Validação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("CPF inválido!", "Mensagem de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("CPF INVÁLIDO", "Mensagem de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
-
             }
         }
     }

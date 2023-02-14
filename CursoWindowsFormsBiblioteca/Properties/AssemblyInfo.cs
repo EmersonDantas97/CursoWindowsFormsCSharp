@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CursoWindowsFormsBiblioteca")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("04a1f242-8f8b-457c-a64b-0b822e4e1c81")]
+[assembly: Guid("d619deb3-f971-4c2d-97a3-f62e9d5681ac")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //

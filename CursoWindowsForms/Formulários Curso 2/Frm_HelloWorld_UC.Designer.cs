@@ -28,39 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txt_ConteudoLabel = new System.Windows.Forms.TextBox();
-            this.btn_ModificaLabel = new System.Windows.Forms.Button();
+            this.Txt_ConteudoLabel = new System.Windows.Forms.TextBox();
+            this.Btn_ModificaLabel = new System.Windows.Forms.Button();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txt_ConteudoLabel
+            // Txt_ConteudoLabel
             // 
-            this.txt_ConteudoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Txt_ConteudoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_ConteudoLabel.Location = new System.Drawing.Point(21, 83);
-            this.txt_ConteudoLabel.Name = "txt_ConteudoLabel";
-            this.txt_ConteudoLabel.Size = new System.Drawing.Size(445, 20);
-            this.txt_ConteudoLabel.TabIndex = 6;
+            this.Txt_ConteudoLabel.Location = new System.Drawing.Point(17, 71);
+            this.Txt_ConteudoLabel.Name = "Txt_ConteudoLabel";
+            this.Txt_ConteudoLabel.Size = new System.Drawing.Size(498, 20);
+            this.Txt_ConteudoLabel.TabIndex = 6;
             // 
-            // btn_ModificaLabel
+            // Btn_ModificaLabel
             // 
-            this.btn_ModificaLabel.Location = new System.Drawing.Point(21, 43);
-            this.btn_ModificaLabel.Name = "btn_ModificaLabel";
-            this.btn_ModificaLabel.Size = new System.Drawing.Size(146, 23);
-            this.btn_ModificaLabel.TabIndex = 5;
-            this.btn_ModificaLabel.Text = "Modifica Label";
-            this.btn_ModificaLabel.UseVisualStyleBackColor = true;
-            this.btn_ModificaLabel.Click += new System.EventHandler(this.btn_ModificaLabel_Click);
+            this.Btn_ModificaLabel.Location = new System.Drawing.Point(17, 42);
+            this.Btn_ModificaLabel.Name = "Btn_ModificaLabel";
+            this.Btn_ModificaLabel.Size = new System.Drawing.Size(209, 23);
+            this.Btn_ModificaLabel.TabIndex = 5;
+            this.Btn_ModificaLabel.Text = "Modifica Texto do Label";
+            this.Btn_ModificaLabel.UseVisualStyleBackColor = true;
+            this.Btn_ModificaLabel.Click += new System.EventHandler(this.Btn_ModificaLabel_Click);
             // 
             // lbl_Titulo
             // 
-            this.lbl_Titulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Titulo.AutoSize = true;
-            this.lbl_Titulo.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Titulo.Location = new System.Drawing.Point(18, 13);
+            this.lbl_Titulo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Titulo.Location = new System.Drawing.Point(13, 20);
             this.lbl_Titulo.Name = "lbl_Titulo";
-            this.lbl_Titulo.Size = new System.Drawing.Size(134, 16);
+            this.lbl_Titulo.Size = new System.Drawing.Size(213, 19);
             this.lbl_Titulo.TabIndex = 4;
             this.lbl_Titulo.Text = "Visual Studio .NET Version";
             // 
@@ -68,11 +66,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txt_ConteudoLabel);
-            this.Controls.Add(this.btn_ModificaLabel);
+            this.Controls.Add(this.Txt_ConteudoLabel);
+            this.Controls.Add(this.Btn_ModificaLabel);
             this.Controls.Add(this.lbl_Titulo);
             this.Name = "Frm_HelloWorld_UC";
-            this.Size = new System.Drawing.Size(492, 298);
+            this.Size = new System.Drawing.Size(537, 330);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,8 +78,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txt_ConteudoLabel;
-        private System.Windows.Forms.Button btn_ModificaLabel;
+        private System.Windows.Forms.TextBox Txt_ConteudoLabel;
+        private System.Windows.Forms.Button Btn_ModificaLabel;
         private System.Windows.Forms.Label lbl_Titulo;
     }
 }

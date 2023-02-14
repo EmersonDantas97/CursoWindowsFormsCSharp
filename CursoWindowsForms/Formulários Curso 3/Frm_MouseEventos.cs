@@ -39,7 +39,7 @@ namespace CursoWindowsForms
 
         private void Btn_Mouse_MouseUp(object sender, MouseEventArgs e)
         {
-            Btn_Mouse.Text = "Mouse UP";
+            Btn_Mouse.Text = "Mouse Up";
         }
     }
 }

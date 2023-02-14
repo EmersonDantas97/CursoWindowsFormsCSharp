@@ -12,28 +12,32 @@ namespace CursoWindowsForms
 {
     public partial class Frm_Login : Form
     {
+
         public string senha;
-        public string usuario;
+        public string login;
 
         public Frm_Login()
         {
             InitializeComponent();
 
-            Lbl_Login.Text = "Login";
-            Lbl_Senha.Text = "Senha";
-            Btn_Ok.Text = "Ok";
+            Lbl_Login.Text = "Usuário";
+            Lbl_Password.Text = "Senha";
+            Btn_OK.Text = "OK";
             Btn_Cancel.Text = "Cancel";
 
+
+           
         }
 
-        private void Btn_Ok_Click(object sender, EventArgs e)
+        private void Btn_OK_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            
-            senha = Txt_Password.Text;
-            usuario = Txt_Login.Text;
 
+            senha = Txt_Senha.Text;
+            login = Txt_Login.Text;
+            
             this.Close();
+
         }
 
         private void Btn_Cancel_Click(object sender, EventArgs e)
@@ -43,3 +47,4 @@ namespace CursoWindowsForms
         }
     }
 }
+

@@ -32,16 +32,14 @@
             this.Txt_Input = new System.Windows.Forms.TextBox();
             this.Txt_Msg = new System.Windows.Forms.TextBox();
             this.Btn_Reset = new System.Windows.Forms.Button();
-            this.Lbl_Maius = new System.Windows.Forms.Label();
             this.Lbl_Minus = new System.Windows.Forms.Label();
+            this.Lbl_Maius = new System.Windows.Forms.Label();
             this.Lbl_Upper = new System.Windows.Forms.Label();
             this.Lbl_Lower = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Txt_Input
             // 
-            this.Txt_Input.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Txt_Input.Location = new System.Drawing.Point(8, 8);
             this.Txt_Input.Name = "Txt_Input";
             this.Txt_Input.Size = new System.Drawing.Size(100, 20);
@@ -72,16 +70,6 @@
             this.Btn_Reset.UseVisualStyleBackColor = true;
             this.Btn_Reset.Click += new System.EventHandler(this.Btn_Reset_Click);
             // 
-            // Lbl_Maius
-            // 
-            this.Lbl_Maius.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Lbl_Maius.AutoSize = true;
-            this.Lbl_Maius.Location = new System.Drawing.Point(320, 56);
-            this.Lbl_Maius.Name = "Lbl_Maius";
-            this.Lbl_Maius.Size = new System.Drawing.Size(38, 13);
-            this.Lbl_Maius.TabIndex = 3;
-            this.Lbl_Maius.Text = "Maius.";
-            // 
             // Lbl_Minus
             // 
             this.Lbl_Minus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -89,8 +77,18 @@
             this.Lbl_Minus.Location = new System.Drawing.Point(320, 104);
             this.Lbl_Minus.Name = "Lbl_Minus";
             this.Lbl_Minus.Size = new System.Drawing.Size(38, 13);
-            this.Lbl_Minus.TabIndex = 4;
+            this.Lbl_Minus.TabIndex = 3;
             this.Lbl_Minus.Text = "Minus.";
+            // 
+            // Lbl_Maius
+            // 
+            this.Lbl_Maius.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Lbl_Maius.AutoSize = true;
+            this.Lbl_Maius.Location = new System.Drawing.Point(320, 56);
+            this.Lbl_Maius.Name = "Lbl_Maius";
+            this.Lbl_Maius.Size = new System.Drawing.Size(38, 13);
+            this.Lbl_Maius.TabIndex = 4;
+            this.Lbl_Maius.Text = "Maius.";
             // 
             // Lbl_Upper
             // 
@@ -117,8 +115,8 @@
             this.ClientSize = new System.Drawing.Size(409, 281);
             this.Controls.Add(this.Lbl_Lower);
             this.Controls.Add(this.Lbl_Upper);
-            this.Controls.Add(this.Lbl_Minus);
             this.Controls.Add(this.Lbl_Maius);
+            this.Controls.Add(this.Lbl_Minus);
             this.Controls.Add(this.Btn_Reset);
             this.Controls.Add(this.Txt_Msg);
             this.Controls.Add(this.Txt_Input);
@@ -126,7 +124,6 @@
             this.Name = "Frm_DemonstracaoKey";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Demonstração Evento Key";
-            this.Load += new System.EventHandler(this.Frm_DemonstracaoKey_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,8 +134,8 @@
         private System.Windows.Forms.TextBox Txt_Input;
         private System.Windows.Forms.TextBox Txt_Msg;
         private System.Windows.Forms.Button Btn_Reset;
-        private System.Windows.Forms.Label Lbl_Maius;
         private System.Windows.Forms.Label Lbl_Minus;
+        private System.Windows.Forms.Label Lbl_Maius;
         private System.Windows.Forms.Label Lbl_Upper;
         private System.Windows.Forms.Label Lbl_Lower;
     }
