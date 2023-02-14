@@ -100,7 +100,8 @@ namespace CursoWindowsForms
                 C = LeituraFormulario();
                 C.ValidaClasse();
                 C.ValidaComplemento();
-                C.IncluirFichario("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
+                C.IncluirFicharioDB("Cliente");
+                //C.IncluirFichario("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
                 MessageBox.Show("OK: Indentificador incluido com sucesso", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException Ex)
@@ -124,7 +125,7 @@ namespace CursoWindowsForms
                 try
                 {
                     Cliente.Unit C = new Cliente.Unit();
-                    C = C.BuscarFichario(Txt_Codigo.Text, "C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
+                    C = C.BuscarFicharioDB(Txt_Codigo.Text, "Cliente");
                     if (C == null)
                     {
                         MessageBox.Show("Identificador não encontrado.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -155,7 +156,7 @@ namespace CursoWindowsForms
                     C = LeituraFormulario();
                     C.ValidaClasse();
                     C.ValidaComplemento();
-                    C.AlterarFichario("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
+                    C.AlterarFicharioDB("Cliente");
                     MessageBox.Show("OK: Indentificador alterado com sucesso", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (ValidationException Ex)
@@ -171,38 +172,39 @@ namespace CursoWindowsForms
 
         private void ApagatoolStripButton1_Click(object sender, EventArgs e)
         {
-                if (Txt_Codigo.Text == "")
-    {
-        MessageBox.Show("Código do Cliente vazio.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
-    else
-    {
-        try
-        {
-            Cliente.Unit C = new Cliente.Unit();
-            C = C.BuscarFichario(Txt_Codigo.Text, "C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
-            if (C == null)
+            if (Txt_Codigo.Text == "")
             {
-                MessageBox.Show("Identificador não encontrado.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Código do Cliente vazio.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                EscreveFormulario(C);
-                Frm_Questao Db = new Frm_Questao("icons8_question_mark_961", "Você quer excluir o cliente?");
-                Db.ShowDialog();
-                if (Db.DialogResult == DialogResult.Yes)
+                try
                 {
-                    C.ApagarFichario("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
-                    MessageBox.Show("OK: Indentificador apagado com sucesso", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimparFormulario();
+                    Cliente.Unit C = new Cliente.Unit();
+                    C = C.BuscarFicharioDB(Txt_Codigo.Text, "Cliente");
+                    //C = C.BuscarFichario(Txt_Codigo.Text, "C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
+                    if (C == null)
+                    {
+                        MessageBox.Show("Identificador não encontrado.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        EscreveFormulario(C);
+                        Frm_Questao Db = new Frm_Questao("icons8_question_mark_961", "Você quer excluir o cliente?");
+                        Db.ShowDialog();
+                        if (Db.DialogResult == DialogResult.Yes)
+                        {
+                            C.ApagarFicharioDB("Cliente");
+                            MessageBox.Show("OK: Indentificador apagado com sucesso", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimparFormulario();
+                        }
+                    }
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-        catch (Exception Ex)
-        {
-            MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-    }
         }
         private void LimpartoolStrpButton1_Click(object sender, EventArgs e)
         {
@@ -252,6 +254,7 @@ namespace CursoWindowsForms
             c.Logradouro = Txt_Logradouro.Text;
             c.Cidade = Txt_Cidade.Text;
             c.Bairro = Txt_Bairro.Text;
+            c.Complemento = Txt_Complemento.Text;
 
             if (Cmb_Estados.SelectedIndex < 0)
                 c.Estado = "";
@@ -358,7 +361,7 @@ namespace CursoWindowsForms
 
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
-            Fichario f = new Fichario("D:\\EMERSON\\Programacao\\CursoWindowsForms\\Fichario");
+            FicharioDB f = new FicharioDB("Cliente");
 
             if (f.status)
             {
@@ -372,7 +375,7 @@ namespace CursoWindowsForms
 
                     foreach (var dds in Lista)
                     {
-                        Cliente.Unit c = Cliente.DesSerializedClassUnit(dds);
+                        Cliente.Unit c = Cliente.Unit.DesSerializedClassUnit(dds);
                         ListaBusca.Add(new List<string> { c.Id, c.Nome });
                     }
                     Frm_Busca F = new Frm_Busca(ListaBusca);
@@ -381,7 +384,7 @@ namespace CursoWindowsForms
                     {
                         string clienteJson = f.Buscar(F.IdSelecionado);
                         Cliente.Unit c = new Cliente.Unit();
-                        c = Cliente.DesSerializedClassUnit(clienteJson);
+                        c = Cliente.Unit.DesSerializedClassUnit(clienteJson);
                         EscreveFormulario(c);
                     }
                 }
@@ -389,8 +392,6 @@ namespace CursoWindowsForms
                 {
                     MessageBox.Show("Erro: " + f.mensagem, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
             }
             else
             {

@@ -13,3 +13,6 @@ D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\obj\Debug\C
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\bin\Debug\Newtonsoft.Json.dll
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\bin\Debug\Newtonsoft.Json.xml
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\obj\Debug\CursoWindowsFormsBiblioteca.csproj.CopyComplete
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\bin\Debug\Databases\Fichario.mdf
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\bin\Debug\Databases\Fichario_log.ldf
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsFormsBiblioteca\bin\Debug\CursoWindowsFormsBiblioteca.dll.config
