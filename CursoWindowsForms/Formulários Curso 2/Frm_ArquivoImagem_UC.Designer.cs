@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             this.Lbl_ArquivoImagem = new System.Windows.Forms.Label();
-            this.Pic_AbrirImagem = new System.Windows.Forms.PictureBox();
+            this.Pic_ArquivoImagem = new System.Windows.Forms.PictureBox();
             this.Btn_Cor = new System.Windows.Forms.Button();
             this.Btn_Fonte = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.Pic_AbrirImagem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_ArquivoImagem)).BeginInit();
             this.SuspendLayout();
             // 
             // Lbl_ArquivoImagem
             // 
             this.Lbl_ArquivoImagem.AutoSize = true;
-            this.Lbl_ArquivoImagem.Location = new System.Drawing.Point(35, 39);
+            this.Lbl_ArquivoImagem.Location = new System.Drawing.Point(17, 36);
             this.Lbl_ArquivoImagem.Name = "Lbl_ArquivoImagem";
             this.Lbl_ArquivoImagem.Size = new System.Drawing.Size(35, 13);
             this.Lbl_ArquivoImagem.TabIndex = 0;
             this.Lbl_ArquivoImagem.Text = "label1";
             // 
-            // Pic_AbrirImagem
+            // Pic_ArquivoImagem
             // 
-            this.Pic_AbrirImagem.Location = new System.Drawing.Point(28, 67);
-            this.Pic_AbrirImagem.Name = "Pic_AbrirImagem";
-            this.Pic_AbrirImagem.Size = new System.Drawing.Size(209, 156);
-            this.Pic_AbrirImagem.TabIndex = 1;
-            this.Pic_AbrirImagem.TabStop = false;
+            this.Pic_ArquivoImagem.Location = new System.Drawing.Point(20, 76);
+            this.Pic_ArquivoImagem.Name = "Pic_ArquivoImagem";
+            this.Pic_ArquivoImagem.Size = new System.Drawing.Size(209, 156);
+            this.Pic_ArquivoImagem.TabIndex = 1;
+            this.Pic_ArquivoImagem.TabStop = false;
             // 
             // Btn_Cor
             // 
@@ -78,11 +78,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Btn_Fonte);
             this.Controls.Add(this.Btn_Cor);
-            this.Controls.Add(this.Pic_AbrirImagem);
+            this.Controls.Add(this.Pic_ArquivoImagem);
             this.Controls.Add(this.Lbl_ArquivoImagem);
             this.Name = "Frm_ArquivoImagem_UC";
-            this.Size = new System.Drawing.Size(548, 257);
-            ((System.ComponentModel.ISupportInitialize)(this.Pic_AbrirImagem)).EndInit();
+            this.Size = new System.Drawing.Size(548, 290);
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_ArquivoImagem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,7 +91,7 @@
         #endregion
 
         private System.Windows.Forms.Label Lbl_ArquivoImagem;
-        private System.Windows.Forms.PictureBox Pic_AbrirImagem;
+        private System.Windows.Forms.PictureBox Pic_ArquivoImagem;
         private System.Windows.Forms.Button Btn_Cor;
         private System.Windows.Forms.Button Btn_Fonte;
     }

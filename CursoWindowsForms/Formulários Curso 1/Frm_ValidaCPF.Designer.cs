@@ -42,20 +42,22 @@
             this.Msk_CPF.Name = "Msk_CPF";
             this.Msk_CPF.Size = new System.Drawing.Size(218, 20);
             this.Msk_CPF.TabIndex = 0;
+            this.Msk_CPF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.Msk_CPF_MaskInputRejected);
             // 
             // Lbl_Resultado
             // 
+            this.Lbl_Resultado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Lbl_Resultado.AutoSize = true;
-            this.Lbl_Resultado.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.Lbl_Resultado.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Resultado.Location = new System.Drawing.Point(12, 90);
             this.Lbl_Resultado.Name = "Lbl_Resultado";
-            this.Lbl_Resultado.Size = new System.Drawing.Size(0, 22);
+            this.Lbl_Resultado.Size = new System.Drawing.Size(0, 19);
             this.Lbl_Resultado.TabIndex = 1;
+            this.Lbl_Resultado.Click += new System.EventHandler(this.Lbl_Resultado_Click);
             // 
             // Btn_Reset
             // 
-            this.Btn_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Reset.Location = new System.Drawing.Point(245, 42);
             this.Btn_Reset.Name = "Btn_Reset";
             this.Btn_Reset.Size = new System.Drawing.Size(111, 23);
@@ -66,13 +68,12 @@
             // 
             // Btn_Valida
             // 
-            this.Btn_Valida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Valida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Valida.Location = new System.Drawing.Point(245, 71);
             this.Btn_Valida.Name = "Btn_Valida";
             this.Btn_Valida.Size = new System.Drawing.Size(111, 23);
             this.Btn_Valida.TabIndex = 3;
-            this.Btn_Valida.Text = "Valída";
+            this.Btn_Valida.Text = "Valida";
             this.Btn_Valida.UseVisualStyleBackColor = true;
             this.Btn_Valida.Click += new System.EventHandler(this.Btn_Valida_Click);
             // 
@@ -88,8 +89,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_ValidaCPF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Validação CPF";
-            this.Load += new System.EventHandler(this.Frm_ValidaCPF_Load);
+            this.Text = "Valida CPF";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace CursoWindowsForms
 {
     public partial class Frm_ValidaCPF : Form
@@ -18,6 +17,7 @@ namespace CursoWindowsForms
         {
             InitializeComponent();
         }
+       
 
         private void Btn_Reset_Click(object sender, EventArgs e)
         {
@@ -29,20 +29,24 @@ namespace CursoWindowsForms
         {
             bool validaCPF = false;
             validaCPF = Cls_Uteis.Valida(Msk_CPF.Text);
-
             if (validaCPF == true)
             {
-                Lbl_Resultado.Text = "CPF válido!";
+                Lbl_Resultado.Text = "CPF VÁLIDO";
                 Lbl_Resultado.ForeColor = Color.Green;
             }
             else
             {
-                Lbl_Resultado.Text = "CPF inválido!";
+                Lbl_Resultado.Text = "CPF INVÁLIDO";
                 Lbl_Resultado.ForeColor = Color.Red;
             }
         }
 
-        private void Frm_ValidaCPF_Load(object sender, EventArgs e)
+        private void Lbl_Resultado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Msk_CPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

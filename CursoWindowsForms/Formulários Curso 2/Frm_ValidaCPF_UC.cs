@@ -1,13 +1,13 @@
-﻿using CursoWindowsFormsBiblioteca;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CursoWindowsFormsBiblioteca;
 
 namespace CursoWindowsForms
 {
@@ -28,15 +28,14 @@ namespace CursoWindowsForms
         {
             bool validaCPF = false;
             validaCPF = Cls_Uteis.Valida(Msk_CPF.Text);
-
             if (validaCPF == true)
             {
-                Lbl_Resultado.Text = "CPF válido!";
+                Lbl_Resultado.Text = "CPF VÁLIDO";
                 Lbl_Resultado.ForeColor = Color.Green;
             }
             else
             {
-                Lbl_Resultado.Text = "CPF inválido!";
+                Lbl_Resultado.Text = "CPF INVÁLIDO";
                 Lbl_Resultado.ForeColor = Color.Red;
             }
         }

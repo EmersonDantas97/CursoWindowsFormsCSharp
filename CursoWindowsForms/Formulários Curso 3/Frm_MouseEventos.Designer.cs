@@ -33,21 +33,22 @@
             // 
             // Btn_Mouse
             // 
-            this.Btn_Mouse.Location = new System.Drawing.Point(61, 87);
+            this.Btn_Mouse.Location = new System.Drawing.Point(102, 53);
             this.Btn_Mouse.Name = "Btn_Mouse";
-            this.Btn_Mouse.Size = new System.Drawing.Size(359, 267);
+            this.Btn_Mouse.Size = new System.Drawing.Size(235, 89);
             this.Btn_Mouse.TabIndex = 0;
             this.Btn_Mouse.UseVisualStyleBackColor = true;
             this.Btn_Mouse.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Btn_Mouse_MouseDown);
             this.Btn_Mouse.MouseEnter += new System.EventHandler(this.Btn_Mouse_MouseEnter);
             this.Btn_Mouse.MouseLeave += new System.EventHandler(this.Btn_Mouse_MouseLeave);
             this.Btn_Mouse.MouseHover += new System.EventHandler(this.Btn_Mouse_MouseHover);
+            this.Btn_Mouse.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Btn_Mouse_MouseUp);
             // 
             // Frm_MouseEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 450);
+            this.ClientSize = new System.Drawing.Size(438, 209);
             this.Controls.Add(this.Btn_Mouse);
             this.Name = "Frm_MouseEventos";
             this.Text = "Frm_MouseEventos";

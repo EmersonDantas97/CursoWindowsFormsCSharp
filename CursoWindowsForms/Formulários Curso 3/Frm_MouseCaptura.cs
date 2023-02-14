@@ -20,8 +20,7 @@ namespace CursoWindowsForms
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
             string str1 = e.Button.ToString();
-
-            MessageBox.Show("Foi pressionado o botão: " + str1);
+            MessageBox.Show("Foi pressionado o botão da(o) " + str1);
         }
     }
 }

@@ -43,7 +43,7 @@
             // 
             // Msk_TextBox
             // 
-            this.Msk_TextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.Msk_TextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Msk_TextBox.Location = new System.Drawing.Point(23, 31);
             this.Msk_TextBox.Name = "Msk_TextBox";
             this.Msk_TextBox.Size = new System.Drawing.Size(258, 26);
@@ -52,16 +52,16 @@
             // Lbl_Conteudo
             // 
             this.Lbl_Conteudo.AutoSize = true;
-            this.Lbl_Conteudo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.Lbl_Conteudo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Conteudo.Location = new System.Drawing.Point(23, 246);
             this.Lbl_Conteudo.Name = "Lbl_Conteudo";
-            this.Lbl_Conteudo.Size = new System.Drawing.Size(0, 19);
+            this.Lbl_Conteudo.Size = new System.Drawing.Size(0, 16);
             this.Lbl_Conteudo.TabIndex = 1;
             // 
             // Lbl_MascaraAtiva
             // 
             this.Lbl_MascaraAtiva.AutoSize = true;
-            this.Lbl_MascaraAtiva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.Lbl_MascaraAtiva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_MascaraAtiva.Location = new System.Drawing.Point(23, 75);
             this.Lbl_MascaraAtiva.Name = "Lbl_MascaraAtiva";
             this.Lbl_MascaraAtiva.Size = new System.Drawing.Size(0, 19);
@@ -157,7 +157,7 @@
             this.MaximizeBox = false;
             this.Name = "Frm_Mascara";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Exemplo Máscaras";
+            this.Text = "Exemplos de Máscaras";
             this.ResumeLayout(false);
             this.PerformLayout();
 

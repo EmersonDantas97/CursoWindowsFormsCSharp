@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CursoWindowsForms
@@ -9,39 +14,33 @@ namespace CursoWindowsForms
     {
         List<List<string>> _ListaBusca = new List<List<string>>();
 
-        public string IdSelecionado;
+        public string idSelect { get; set; }
 
         public Frm_Busca(List<List<string>> ListaBusca)
         {
             _ListaBusca = ListaBusca;
-
             InitializeComponent();
-
-            this.Text = "Buscar";
-
-            Tls_Principal.Items[0].ToolTipText = "Abrir";
-            Tls_Principal.Items[1].ToolTipText = "Fechar";
-
+            this.Text = "Busca";
+            Tls_Principal.Items[0].ToolTipText = "Salvar a seleção";
+            Tls_Principal.Items[1].ToolTipText = "Fechar a seleção";
             PreencherLista();
-
             Lst_Busca.Sorted = true;
+
         }
 
         private void PreencherLista()
         {
             Lst_Busca.Items.Clear();
-
             for (int i = 0; i <= _ListaBusca.Count - 1; i++)
             {
                 ItemBox X = new ItemBox();
-                X.Id = _ListaBusca[i][0];
-                X.Nome = _ListaBusca[i][1];
-
+                X.id = _ListaBusca[i][0];
+                X.nome = _ListaBusca[i][1];
                 Lst_Busca.Items.Add(X);
             }
         }
 
-        private void ApagatoolStripButton1_Click(object sender, EventArgs e)
+        private void ApagatoolStripButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             this.Close();
@@ -50,22 +49,19 @@ namespace CursoWindowsForms
         private void salvarToolStripButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-
-            ItemBox itemSelecionado = (ItemBox)Lst_Busca.Items[Lst_Busca.SelectedIndex];
-
-            IdSelecionado = itemSelecionado.Id;
-
+            ItemBox ItemSelecionado = (ItemBox)Lst_Busca.Items[Lst_Busca.SelectedIndex];
+            idSelect = ItemSelecionado.id;
             this.Close();
         }
 
         class ItemBox
         {
-            public string Id { get; set; }
-            public string Nome { get; set; }
+            public string id { get; set; }
+            public string nome { get; set; }
 
             public override string ToString()
             {
-                return Nome.ToString();
+                return nome;
             }
         }
     }

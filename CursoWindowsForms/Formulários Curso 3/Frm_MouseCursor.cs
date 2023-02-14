@@ -19,16 +19,13 @@ namespace CursoWindowsForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             this.Cursor = Cursors.WaitCursor;
-
-            for (int i = 0; i <= 10; i++)
+            for (int i=0; i <= 10; i++)
             {
-                System.Threading.Thread.Sleep(1000); // 1000 milisegundos
+                System.Threading.Thread.Sleep(1000);
             }
-
-            this.Cursor = Cursors.Default; // Tem que retornar se não vai ficar com o cursor anterior.
-
+            this.Cursor = Cursors.Default;
         }
     }
 }

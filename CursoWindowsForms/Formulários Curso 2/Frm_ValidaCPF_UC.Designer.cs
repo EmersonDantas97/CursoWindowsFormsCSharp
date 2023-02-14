@@ -36,21 +36,19 @@
             // 
             // Btn_Valida
             // 
-            this.Btn_Valida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_Valida.Location = new System.Drawing.Point(253, 90);
+            this.Btn_Valida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Valida.Location = new System.Drawing.Point(386, 54);
             this.Btn_Valida.Name = "Btn_Valida";
             this.Btn_Valida.Size = new System.Drawing.Size(111, 23);
             this.Btn_Valida.TabIndex = 7;
-            this.Btn_Valida.Text = "Valída";
+            this.Btn_Valida.Text = "Valida";
             this.Btn_Valida.UseVisualStyleBackColor = true;
             this.Btn_Valida.Click += new System.EventHandler(this.Btn_Valida_Click);
             // 
             // Btn_Reset
             // 
-            this.Btn_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_Reset.Location = new System.Drawing.Point(253, 61);
+            this.Btn_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Reset.Location = new System.Drawing.Point(386, 25);
             this.Btn_Reset.Name = "Btn_Reset";
             this.Btn_Reset.Size = new System.Drawing.Size(111, 23);
             this.Btn_Reset.TabIndex = 6;
@@ -61,15 +59,15 @@
             // Lbl_Resultado
             // 
             this.Lbl_Resultado.AutoSize = true;
-            this.Lbl_Resultado.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.Lbl_Resultado.Location = new System.Drawing.Point(20, 109);
+            this.Lbl_Resultado.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Resultado.Location = new System.Drawing.Point(20, 73);
             this.Lbl_Resultado.Name = "Lbl_Resultado";
-            this.Lbl_Resultado.Size = new System.Drawing.Size(0, 22);
+            this.Lbl_Resultado.Size = new System.Drawing.Size(0, 19);
             this.Lbl_Resultado.TabIndex = 5;
             // 
             // Msk_CPF
             // 
-            this.Msk_CPF.Location = new System.Drawing.Point(20, 64);
+            this.Msk_CPF.Location = new System.Drawing.Point(20, 28);
             this.Msk_CPF.Mask = "000,000,000-00";
             this.Msk_CPF.Name = "Msk_CPF";
             this.Msk_CPF.Size = new System.Drawing.Size(218, 20);
@@ -84,7 +82,7 @@
             this.Controls.Add(this.Lbl_Resultado);
             this.Controls.Add(this.Msk_CPF);
             this.Name = "Frm_ValidaCPF_UC";
-            this.Size = new System.Drawing.Size(384, 193);
+            this.Size = new System.Drawing.Size(500, 161);
             this.ResumeLayout(false);
             this.PerformLayout();
 

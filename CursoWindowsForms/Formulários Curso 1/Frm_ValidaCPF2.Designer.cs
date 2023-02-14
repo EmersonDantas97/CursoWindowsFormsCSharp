@@ -44,6 +44,7 @@
             // 
             // Btn_Reset
             // 
+            this.Btn_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Reset.Location = new System.Drawing.Point(245, 42);
             this.Btn_Reset.Name = "Btn_Reset";
             this.Btn_Reset.Size = new System.Drawing.Size(111, 23);
@@ -54,11 +55,12 @@
             // 
             // Btn_Valida
             // 
+            this.Btn_Valida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Valida.Location = new System.Drawing.Point(245, 71);
             this.Btn_Valida.Name = "Btn_Valida";
             this.Btn_Valida.Size = new System.Drawing.Size(111, 23);
             this.Btn_Valida.TabIndex = 3;
-            this.Btn_Valida.Text = "Valída";
+            this.Btn_Valida.Text = "Valida";
             this.Btn_Valida.UseVisualStyleBackColor = true;
             this.Btn_Valida.Click += new System.EventHandler(this.Btn_Valida_Click);
             // 
@@ -75,7 +77,7 @@
             this.MaximizeBox = false;
             this.Name = "Frm_ValidaCPF2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Validação CPF";
+            this.Text = "Valida CPF";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,5 +89,4 @@
         private System.Windows.Forms.Button Btn_Reset;
         private System.Windows.Forms.Button Btn_Valida;
     }
-
 }

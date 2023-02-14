@@ -35,17 +35,19 @@
             // 
             // Btn_Valida
             // 
-            this.Btn_Valida.Location = new System.Drawing.Point(253, 99);
+            this.Btn_Valida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Valida.Location = new System.Drawing.Point(313, 45);
             this.Btn_Valida.Name = "Btn_Valida";
             this.Btn_Valida.Size = new System.Drawing.Size(111, 23);
             this.Btn_Valida.TabIndex = 6;
-            this.Btn_Valida.Text = "Valída";
+            this.Btn_Valida.Text = "Valida";
             this.Btn_Valida.UseVisualStyleBackColor = true;
             this.Btn_Valida.Click += new System.EventHandler(this.Btn_Valida_Click);
             // 
             // Btn_Reset
             // 
-            this.Btn_Reset.Location = new System.Drawing.Point(253, 70);
+            this.Btn_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Reset.Location = new System.Drawing.Point(313, 16);
             this.Btn_Reset.Name = "Btn_Reset";
             this.Btn_Reset.Size = new System.Drawing.Size(111, 23);
             this.Btn_Reset.TabIndex = 5;
@@ -55,7 +57,7 @@
             // 
             // Msk_CPF
             // 
-            this.Msk_CPF.Location = new System.Drawing.Point(20, 73);
+            this.Msk_CPF.Location = new System.Drawing.Point(15, 19);
             this.Msk_CPF.Mask = "000,000,000-00";
             this.Msk_CPF.Name = "Msk_CPF";
             this.Msk_CPF.Size = new System.Drawing.Size(218, 20);
@@ -69,7 +71,7 @@
             this.Controls.Add(this.Btn_Reset);
             this.Controls.Add(this.Msk_CPF);
             this.Name = "Frm_ValidaCPF2_UC";
-            this.Size = new System.Drawing.Size(384, 193);
+            this.Size = new System.Drawing.Size(435, 123);
             this.ResumeLayout(false);
             this.PerformLayout();
 

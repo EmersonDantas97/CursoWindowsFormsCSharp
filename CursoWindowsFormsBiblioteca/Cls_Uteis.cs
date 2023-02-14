@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Net;
+using System.IO;
+
 
 namespace CursoWindowsFormsBiblioteca
 {
@@ -18,9 +19,9 @@ namespace CursoWindowsFormsBiblioteca
             {
                 return true;
             }
-
             return false;
         }
+
         public static string GeraJSONCEP(string CEP)
         {
             System.Net.HttpWebRequest requisicao = (HttpWebRequest)WebRequest.Create("https://viacep.com.br/ws/" + CEP + "/json/");
@@ -39,6 +40,7 @@ namespace CursoWindowsFormsBiblioteca
 
             } while (cont > 0);
             return sb.ToString();
+
         }
 
         public static bool Valida(string cpf)

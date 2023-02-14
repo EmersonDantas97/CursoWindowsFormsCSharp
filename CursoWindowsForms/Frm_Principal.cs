@@ -17,15 +17,16 @@ namespace CursoWindowsForms
             InitializeComponent();
         }
 
-        private void Btn_DemonstacaoKey_Click(object sender, EventArgs e)
+        private void Btn_DemostracaoKey_Click(object sender, EventArgs e)
         {
             Frm_DemonstracaoKey f = new Frm_DemonstracaoKey();
             f.ShowDialog();
+
         }
 
         private void Btn_HelloWorld_Click(object sender, EventArgs e)
         {
-            Frm_HelloWord f = new Frm_HelloWord();
+            Frm_HelloWorld f = new Frm_HelloWorld();
             f.ShowDialog();
         }
 

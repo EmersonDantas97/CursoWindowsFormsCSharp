@@ -1,13 +1,20 @@
 ﻿using System;
-using System.Text.RegularExpressions;
-using System.Drawing;
-using System.Windows.Forms;
 using CursoWindowsFormsBiblioteca;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CursoWindowsForms
 {
     public partial class Frm_ValidaSenha : Form
     {
+
         bool VerSenhaTxt = false;
 
         public Frm_ValidaSenha()
@@ -28,7 +35,7 @@ namespace CursoWindowsForms
             forca = verifica.GetForcaDaSenha(Txt_Senha.Text);
             Lbl_Resultado.Text = forca.ToString();
 
-            if (Lbl_Resultado.Text == "Inaceitavel" | Lbl_Resultado.Text =="Fraca")
+            if (Lbl_Resultado.Text == "Inaceitavel" | Lbl_Resultado.Text == "Fraca")
             {
                 Lbl_Resultado.ForeColor = Color.Red;
             }
@@ -47,16 +54,18 @@ namespace CursoWindowsForms
         {
             if (VerSenhaTxt == false)
             {
-                Txt_Senha.PasswordChar = '\0'; // Representa caracter vazio. Por ser no formato char, é necessário estar sobre aspas simples.
+                Txt_Senha.PasswordChar = '\0';
                 VerSenhaTxt = true;
                 Btn_VerSenha.Text = "Esconder Senha";
             }
             else
             {
-                Txt_Senha.PasswordChar = '*'; // Representa caracter vazio. Por ser no formato char, é necessário estar sobre aspas simples.
+                Txt_Senha.PasswordChar = '*';
                 VerSenhaTxt = false;
                 Btn_VerSenha.Text = "Ver Senha";
             }
+           
+
         }
     }
 }
