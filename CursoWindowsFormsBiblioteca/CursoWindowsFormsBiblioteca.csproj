@@ -66,6 +66,7 @@
     <Compile Include="Databases\Fichario.cs" />
     <Compile Include="Databases\FicharioDB.cs" />
     <Compile Include="Databases\LocalDBClass.cs" />
+    <Compile Include="Databases\SQLServerClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
