@@ -1,6 +1,7 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 using System;
+using System.Configuration;
 
 namespace CursoWindowsFormsBiblioteca.Databases
 {
@@ -13,6 +14,7 @@ namespace CursoWindowsFormsBiblioteca.Databases
         {
             try
             {
+                //stringConn = ConfigurationMananger.ConnectionStrings["Fichario"].ConnectionStrings; // Não funcionou
                 stringConn = "Data Source=DESKTOP-7TLUK34;Initial Catalog=ByteBank;Persist Security Info=True;User ID=sa;Password=bispo1997";
                 connDB = new SqlConnection(stringConn);
                 connDB.Open();
