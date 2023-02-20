@@ -105,7 +105,7 @@ namespace CursoWindowsFormsBiblioteca.Databases
             catch (Exception ex)
             {
                 status = false;
-                mensagem = "Erro ao buscar o conteúdo do identificador: " + ex.Message;
+                mensagem = "E   rro ao buscar o conteúdo do identificador: " + ex.Message;
             }
             return List;
         }
