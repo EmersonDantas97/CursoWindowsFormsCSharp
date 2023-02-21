@@ -71,7 +71,10 @@ namespace CursoWindowsFormsBiblioteca.Classes
             [Range(0, double.MaxValue, ErrorMessage = "Renda familiar deve ser um valor positivo.")]
             public Double RendaFamiliar { get; set; }
 
-            public override string ToString()
+            #region "CRUD do Fichario DB SQL Server relacional"
+
+            #region "Funções auxiliares"
+            public string ToInsert()
             {
                 string sql;
                 sql = "INSERT INTO TB_Cliente(Id," +
@@ -91,7 +94,7 @@ namespace CursoWindowsFormsBiblioteca.Classes
                     "Profissao," +
                     "RendaFamiliar) " +
                     "VALUES ";
-                
+
                 sql += $"('{this.Id}'," +
                     $"'{this.Nome}'," +
                     $"'{this.NomePai}'," +
@@ -111,6 +114,35 @@ namespace CursoWindowsFormsBiblioteca.Classes
 
                 return sql;
             }
+
+            public string ToUpdate(string id)
+            {
+                string sql;
+
+                sql = $"UPDATE TB_Cliente SET Id = {this.Id}," +
+                    $"Nome = '{this.Nome}'," +
+                    $"NomePai = '{this.NomePai}'," +
+                    $"NomeMae = '{this.NomeMae}'," +
+                    $"NaoTemPai = {Convert.ToString(this.NaoTemPai)}," +
+                    $"Cpf = '{this.Cpf}'," +
+                    $"Genero = {Convert.ToString(this.Genero)}," +
+                    $"Cep = '{this.Cep}'," +
+                    $"Logradouro = '{this.Logradouro}'," +
+                    $"Complemento = '{this.Complemento}'," +
+                    $"Bairro = '{this.Bairro}'," +
+                    $"Cidade = '{this.Cidade}'," +
+                    $"Estado = '{this.Estado}'," +
+                    $"Telefone = '{this.Telefone}'," +
+                    $"Profissao = '{this.Profissao}'," +
+                    $"RendaFamiliar = {Convert.ToString(this.RendaFamiliar)} " +
+                    $"WHERE Id = {id}";
+
+                return sql;
+            }
+
+            #endregion
+
+            #endregion
 
             public void ValidaClasse()
             {
