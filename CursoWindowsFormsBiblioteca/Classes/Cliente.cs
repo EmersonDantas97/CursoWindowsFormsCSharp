@@ -71,6 +71,47 @@ namespace CursoWindowsFormsBiblioteca.Classes
             [Range(0, double.MaxValue, ErrorMessage = "Renda familiar deve ser um valor positivo.")]
             public Double RendaFamiliar { get; set; }
 
+            public override string ToString()
+            {
+                string sql;
+                sql = "INSERT INTO TB_Cliente(Id," +
+                    "Nome," +
+                    "NomePai," +
+                    "NomeMae," +
+                    "NaoTemPai," +
+                    "Cpf," +
+                    "Genero," +
+                    "Cep," +
+                    "Logradouro," +
+                    "Complemento," +
+                    "Bairro," +
+                    "Cidade," +
+                    "Estado," +
+                    "Telefone," +
+                    "Profissao," +
+                    "RendaFamiliar) " +
+                    "VALUES ";
+                
+                sql += $"('{this.Id}'," +
+                    $"'{this.Nome}'," +
+                    $"'{this.NomePai}'," +
+                    $"'{this.NomeMae}'," +
+                    $"{Convert.ToString(this.NaoTemPai)}," +
+                    $"'{this.Cpf}'," +
+                    $"{Convert.ToString(this.Genero)}," +
+                    $"'{this.Cep}'," +
+                    $"'{this.Logradouro}'," +
+                    $"'{this.Complemento}'," +
+                    $"'{this.Bairro}'," +
+                    $"'{this.Cidade}'," +
+                    $"'{this.Estado}'," +
+                    $"'{this.Telefone}'," +
+                    $"'{this.Profissao}'," +
+                    $"{Convert.ToString(this.RendaFamiliar)});";
+
+                return sql;
+            }
+
             public void ValidaClasse()
             {
                 ValidationContext context = new ValidationContext(this, serviceProvider: null, items: null);
