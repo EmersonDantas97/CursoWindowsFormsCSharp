@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Text;
 
 namespace CursoWindowsFormsBiblioteca.Classes
@@ -74,6 +75,48 @@ namespace CursoWindowsFormsBiblioteca.Classes
             #region "CRUD do Fichario DB SQL Server relacional"
 
             #region "Funções auxiliares"
+            public void IncluirFicharioSQLRel()
+            {
+                try
+                {
+                    string SQL;
+                    SQL = this.ToInsert();
+                    var db = new SQLServerClass();
+
+                    db.SQLCommand(SQL);
+                    db.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Inclusão não permitida do identificador: " + this.Id + ", erro: " + ex.Message);
+                }
+            }
+
+            public Unit BuscarFicharioSQLRel(string Id)
+            {
+                try
+                {
+                    string SQL = "SELECT * FROM [TB_Cliente] WHERE ID = '" + Id + "';";
+                    var db = new SQLServerClass();
+                    var Dt = db.SQLQuery(SQL);
+
+                    if (Dt.Rows.Count == 0)
+                    {
+                        db.Close();
+                        throw new Exception("Identificador não existente!");
+                    }
+                    else
+                    {
+                        Unit u = this.DataRowToUnit(Dt.Rows[0]);
+                        return u;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erro ao buscar o identificardor: " + Id + ", erro: " + ex.Message);
+                }
+            }
+
             public string ToInsert()
             {
                 string sql;
@@ -113,6 +156,30 @@ namespace CursoWindowsFormsBiblioteca.Classes
                     $"{Convert.ToString(this.RendaFamiliar)});";
 
                 return sql;
+            }
+
+            public Unit DataRowToUnit(DataRow dr)
+            {
+                Unit u = new Unit();
+
+                u.Id = dr["Id"].ToString();
+                u.Nome = dr["Nome"].ToString();
+                u.NomePai = dr["NomePai"].ToString();
+                u.NomeMae = dr["NomeMae"].ToString();
+                u.NaoTemPai = Convert.ToInt32(dr["NaoTemPai"]);
+                u.Cpf = dr["Cpf"].ToString();
+                u.Genero = Convert.ToInt32(dr["Genero"].ToString());
+                u.Cep = dr["Cep"].ToString();
+                u.Logradouro = dr["Logradouro"].ToString();
+                u.Complemento = dr["Complemento"].ToString();
+                u.Bairro = dr["Bairro"].ToString();
+                u.Cidade = dr["Cidade"].ToString();
+                u.Estado = dr["Estado"].ToString();
+                u.Telefone = dr["Telefone"].ToString();
+                u.Profissao = dr["Profissao"].ToString();
+                u.RendaFamiliar = Convert.ToDouble(dr["RendaFamiliar"].ToString());
+
+                return u;
             }
 
             public string ToUpdate(string id)
