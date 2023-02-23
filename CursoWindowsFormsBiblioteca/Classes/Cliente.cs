@@ -90,21 +90,30 @@ namespace CursoWindowsFormsBiblioteca.Classes
                 {
                     throw new Exception("Inclusão não permitida do identificador: " + this.Id + ", erro: " + ex.Message);
                 }
+            }
 
-
-                string clienteJson = Cliente.SerializedClassUnit(this);
-                FicharioSQLServer F = new FicharioSQLServer(Conexao);
-                if (F.status)
+            public Unit BuscarFicharioSQLRel(string Id)
+            {
+                try
                 {
-                    F.Incluir(this.Id, clienteJson);
-                    if (!(F.status))
+                    string SQL = "SELECT * FROM [TB_Cliente] WHERE ID = '" + Id + "';";
+                    var db = new SQLServerClass();
+                    var Dt = db.SQLQuery(SQL);
+
+                    if (Dt.Rows.Count == 0)
                     {
-                        throw new Exception(F.mensagem);
+                        db.Close();
+                        throw new Exception("Identificador não existente!");
+                    }
+                    else
+                    {
+                        Unit u = this.DataRowToUnit(Dt.Rows[0]);
+                        return u;
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new Exception(F.mensagem);
+                    throw new Exception("Erro ao buscar o identificardor: " + Id + ", erro: " + ex.Message);
                 }
             }
 
@@ -149,7 +158,7 @@ namespace CursoWindowsFormsBiblioteca.Classes
                 return sql;
             }
 
-            public Unit DataRowToUnit (DataRow dr)
+            public Unit DataRowToUnit(DataRow dr)
             {
                 Unit u = new Unit();
 
