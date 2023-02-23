@@ -75,6 +75,39 @@ namespace CursoWindowsFormsBiblioteca.Classes
             #region "CRUD do Fichario DB SQL Server relacional"
 
             #region "Funções auxiliares"
+            public void IncluirFicharioSQLRel()
+            {
+                try
+                {
+                    string SQL;
+                    SQL = this.ToInsert();
+                    var db = new SQLServerClass();
+
+                    db.SQLCommand(SQL);
+                    db.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Inclusão não permitida do identificador: " + this.Id + ", erro: " + ex.Message);
+                }
+
+
+                string clienteJson = Cliente.SerializedClassUnit(this);
+                FicharioSQLServer F = new FicharioSQLServer(Conexao);
+                if (F.status)
+                {
+                    F.Incluir(this.Id, clienteJson);
+                    if (!(F.status))
+                    {
+                        throw new Exception(F.mensagem);
+                    }
+                }
+                else
+                {
+                    throw new Exception(F.mensagem);
+                }
+            }
+
             public string ToInsert()
             {
                 string sql;
