@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Text;
 
 namespace CursoWindowsFormsBiblioteca.Classes
@@ -113,6 +114,30 @@ namespace CursoWindowsFormsBiblioteca.Classes
                     $"{Convert.ToString(this.RendaFamiliar)});";
 
                 return sql;
+            }
+
+            public Unit DataRowToUnit (DataRow dr)
+            {
+                Unit u = new Unit();
+
+                u.Id = dr["Id"].ToString();
+                u.Nome = dr["Nome"].ToString();
+                u.NomePai = dr["NomePai"].ToString();
+                u.NomeMae = dr["NomeMae"].ToString();
+                u.NaoTemPai = Convert.ToInt32(dr["NaoTemPai"]);
+                u.Cpf = dr["Cpf"].ToString();
+                u.Genero = Convert.ToInt32(dr["Genero"].ToString());
+                u.Cep = dr["Cep"].ToString();
+                u.Logradouro = dr["Logradouro"].ToString();
+                u.Complemento = dr["Complemento"].ToString();
+                u.Bairro = dr["Bairro"].ToString();
+                u.Cidade = dr["Cidade"].ToString();
+                u.Estado = dr["Estado"].ToString();
+                u.Telefone = dr["Telefone"].ToString();
+                u.Profissao = dr["Profissao"].ToString();
+                u.RendaFamiliar = Convert.ToDouble(dr["RendaFamiliar"].ToString());
+
+                return u;
             }
 
             public string ToUpdate(string id)
