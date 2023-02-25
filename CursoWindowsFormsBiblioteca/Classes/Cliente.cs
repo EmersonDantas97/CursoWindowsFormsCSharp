@@ -169,7 +169,7 @@ namespace CursoWindowsFormsBiblioteca.Classes
                 }
             }
 
-            public List<List<string>> BuscarFicharioDBTodosSQLRel(string conexao)
+            public List<List<string>> BuscarFicharioDBTodosSQLRel()
             {
                 List<List<string>> ListaBusca = new List<List<string>>();
 
@@ -262,7 +262,7 @@ namespace CursoWindowsFormsBiblioteca.Classes
             {
                 string sql;
 
-                sql = $"UPDATE TB_Cliente SET Id = {this.Id}," +
+                sql = $"UPDATE TB_Cliente SET Id = '{this.Id}'," +
                     $"Nome = '{this.Nome}'," +
                     $"NomePai = '{this.NomePai}'," +
                     $"NomeMae = '{this.NomeMae}'," +
