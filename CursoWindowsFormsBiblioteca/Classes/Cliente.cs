@@ -117,6 +117,32 @@ namespace CursoWindowsFormsBiblioteca.Classes
                 }
             }
 
+            public void AlterarFicharioSQLRel()
+            {
+                try
+                {
+                    string SQL = "SELECT * FROM [TB_Cliente] WHERE ID = '" + Id + "';";
+                    var db = new SQLServerClass();
+                    var Dt = db.SQLQuery(SQL);
+
+                    if (Dt.Rows.Count == 0)
+                    {
+                        db.Close();
+                        throw new Exception("Identificador não existente!");
+                    }
+                    else
+                    {
+                        SQL = this.ToUpdate(this.Id);
+                        db.SQLCommand(SQL);
+                        db.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erro ao alterar o conteúdo do identificador: " + Id + ", erro: " + ex.Message);
+                }
+            }
+
             public string ToInsert()
             {
                 string sql;
