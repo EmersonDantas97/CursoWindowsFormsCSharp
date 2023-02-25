@@ -177,7 +177,6 @@ namespace CursoWindowsForms
                         EscreveFormulario(C);
                     }
 
-
                     //Fichario F = new Fichario("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
                     //if (F.status)
                     //{

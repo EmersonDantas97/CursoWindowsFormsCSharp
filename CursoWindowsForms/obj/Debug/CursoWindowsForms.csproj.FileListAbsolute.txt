@@ -120,3 +120,4 @@ D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindow
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.csproj.CopyComplete
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.exe
 D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.pdb
+D:\EMERSON\Programacao\CursoWindowsForms\CursoWindowsForms\obj\Debug\CursoWindowsForms.Frm_Agencia.resources
