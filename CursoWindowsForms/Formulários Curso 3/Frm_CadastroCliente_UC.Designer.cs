@@ -73,10 +73,10 @@
             this.ApagatoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.LimpartoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.Grp_DataGrid = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Dg_Clientes = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Grp_Codigo.SuspendLayout();
             this.Grp_DadosPessoais.SuspendLayout();
             this.Grp_Genero.SuspendLayout();
@@ -539,6 +539,7 @@
             this.Dg_Clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dg_Clientes.Size = new System.Drawing.Size(428, 442);
             this.Dg_Clientes.TabIndex = 0;
+            this.Dg_Clientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dg_Clientes_CellDoubleClick);
             // 
             // Id
             // 

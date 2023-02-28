@@ -488,10 +488,10 @@ namespace CursoWindowsForms
             try
             {
                 Cliente.Unit C = new Cliente.Unit();
-                
+
                 //var ListaBusca = C.BuscarFicharioTodos("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
                 //var ListaBusca = C.BuscarFicharioDBTodosSQL("Cliente");
-                
+
                 var ListaBusca = C.BuscarFicharioDBTodosSQLRel();
                 Frm_Busca FForm = new Frm_Busca(ListaBusca);
                 FForm.ShowDialog();
@@ -577,6 +577,35 @@ namespace CursoWindowsForms
             {
                 MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Dg_Clientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row = Dg_Clientes.SelectedRows[0];
+
+                string id = row.Cells[0].Value.ToString();
+
+                Cliente.Unit C = new Cliente.Unit();
+
+                C = C.BuscarFicharioSQLRel(id);
+                if (C == null)
+                {
+                    MessageBox.Show("Identificador não encontrado.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    EscreveFormulario(C);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"ByteBank",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
