@@ -72,6 +72,9 @@ namespace CursoWindowsForms
 
             Btn_Busca.Text = "Buscar";
 
+            Grp_DataGrid.Text = "Clientes";
+            AtualizaGrid();
+
             LimparFormulario();
 
         }
@@ -124,6 +127,7 @@ namespace CursoWindowsForms
                 C.IncluirFicharioSQLRel();
                 MessageBox.Show("OK: Indentificador incluido com sucesso", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimparFormulario();
+                AtualizaGrid();
                 //string clienteJson = Cliente.SerializedClassUnit(C);
                 //Fichario F = new Fichario("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
                 //if (F.status)
@@ -219,6 +223,8 @@ namespace CursoWindowsForms
 
                     LimparFormulario();
 
+                    AtualizaGrid();
+
                     //string clienteJson = Cliente.SerializedClassUnit(C);
                     //Fichario F = new Fichario("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
                     //if (F.status)
@@ -281,6 +287,7 @@ namespace CursoWindowsForms
                             C.ApagarFicharioSQLRel();
                             MessageBox.Show("OK: Indentificador apagado com sucesso", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LimparFormulario();
+                            AtualizaGrid();
                         }
                     }
                 }
@@ -544,6 +551,32 @@ namespace CursoWindowsForms
             //    MessageBox.Show("ERR: " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
 
+        }
+
+        private void AtualizaGrid()
+        {
+            try
+            {
+                Cliente.Unit C = new Cliente.Unit();
+
+                var ListaBusca = C.BuscarFicharioDBTodosSQLRel();
+
+                Dg_Clientes.Rows.Clear();
+
+                for (int i = 0; i <= ListaBusca.Count - 1; i++)
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(Dg_Clientes);
+                    row.Cells[0].Value = ListaBusca[i][0].ToString();
+                    row.Cells[1].Value = ListaBusca[i][1].ToString();
+                    Dg_Clientes.Rows.Add(row);
+                }
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
